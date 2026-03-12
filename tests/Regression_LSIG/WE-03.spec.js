@@ -1,16 +1,19 @@
+// tests/Regression_LSIG/WE-03.spec.js
 const { test, expect } = require('@playwright/test');
 const fs = require('fs');
 const path = require('path');
 
 const baseURL = 'https://stage.lifesciences.danaher.com/';
 
+// ---------------- Helper: Accept cookies ----------------
 async function acceptCookies(page) {
   const acceptBtn = page.getByRole('button', { name: /Accept/i });
   if (await acceptBtn.isVisible().catch(() => false)) {
-    await acceptBtn.click();
+    await page.click(acceptBtn);
   }
 }
 
+// ---------------- Helper: Navigate to OpCo ----------------
 async function navigateToOpCoAndVerifyURL(page, name, urlPattern) {
   const opcoLink = page.getByRole('link', { name });
   await expect(opcoLink).toBeVisible();
@@ -18,7 +21,7 @@ async function navigateToOpCoAndVerifyURL(page, name, urlPattern) {
 
   await Promise.all([
     page.waitForLoadState('domcontentloaded', { timeout: 30000 }),
-    opcoLink.click()
+    page.click(opcoLink)
   ]);
 
   await acceptCookies(page);
@@ -26,13 +29,13 @@ async function navigateToOpCoAndVerifyURL(page, name, urlPattern) {
   await expect(page).toHaveURL(urlPattern);
 }
 
-// Proxy wrapper for auto screenshots
-function autoScreenshotPage(page, runFolder) {
+// ---------------- Proxy wrapper: Auto screenshot ----------------
+function autoScreenshotPage(page, folder) {
   let step = 1;
 
-  if (!fs.existsSync(runFolder)) {
-    fs.mkdirSync(runFolder, { recursive: true });
-    console.log(`Created screenshot folder: ${runFolder}`);
+  if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder, { recursive: true });
+    console.log(`✅ Screenshot folder created at: ${folder}`);
   }
 
   return new Proxy(page, {
@@ -41,14 +44,17 @@ function autoScreenshotPage(page, runFolder) {
       if (typeof orig === 'function') {
         return async (...args) => {
           const result = await orig.apply(target, args);
+
+          // Actions to capture automatically
           const actions = ['goto','click','fill','check','uncheck','selectOption','hover','press'];
           if (actions.includes(prop)) {
             const fileName = `${step.toString().padStart(2,'0')}_${prop}.png`;
-            const filePath = path.join(runFolder, fileName);
+            const filePath = path.join(folder, fileName);
             await target.screenshot({ path: filePath, fullPage: true });
             console.log(`Screenshot saved: ${filePath}`);
             step += 1;
           }
+
           return result;
         };
       }
@@ -57,13 +63,13 @@ function autoScreenshotPage(page, runFolder) {
   });
 }
 
+// ---------------- Test ----------------
 test('WE-03 Verify Each OpCo Link From Top Section', async ({ page }) => {
-  // Create unique folder in project root
-  const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const runFolder = path.join(process.cwd(), 'screenshots', `run_${timestamp}`);
+  // Use SCREENSHOT_DIR from workflow, fallback to local folder
+  const screenshotFolder = process.env.SCREENSHOT_DIR || path.join(__dirname, '..', '..', 'screenshots', 'local_run');
+  const autoPage = autoScreenshotPage(page, screenshotFolder);
 
-  const autoPage = autoScreenshotPage(page, runFolder);
-
+  // Homepage step
   await autoPage.goto(baseURL);
   await acceptCookies(autoPage);
 
@@ -82,6 +88,8 @@ test('WE-03 Verify Each OpCo Link From Top Section', async ({ page }) => {
 
   for (const [name, urlPattern] of opCos) {
     await navigateToOpCoAndVerifyURL(autoPage, name, urlPattern);
+
+    // Return to homepage for next OpCo
     await autoPage.goto(baseURL);
     await acceptCookies(autoPage);
   }
