@@ -94,9 +94,13 @@ try {
         }
 
         rows.push({
-          Suite: suite.title || 'Root Suite',
-          'Test Case ID': testTitle.replace(/\s+/g, '_'),
-          'Test Case Name': specTitle,
+          //Suite: suite.title || 'Root Suite',
+          Suite: "Regression_LSIG",
+          Release: "43",
+          Category: "LSIG-eCom",
+          'Scenario Name': specTitle,
+          //'Test Case ID': testTitle.replace(/\s+/g, '_'),
+          //'Test Case Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
           'Failed Step Description': result.error?.message || '-',
@@ -118,8 +122,12 @@ try {
   const worksheet = XLSX.utils.json_to_sheet(rows, {
     header: [
       'Suite',
-      'Test Case ID',
-      'Test Case Name',
+      'Release',
+      'Category',
+      'Scenario Name',
+      //'Test Case ID',
+      //'Test Case Name',
+
       'Step Number',
       'Status',
       'Failed Step Description',
