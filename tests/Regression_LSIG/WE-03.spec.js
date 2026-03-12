@@ -1,7 +1,7 @@
 // tests/Regression_LSIG/WE-03.spec.js
 const { test, expect } = require('@playwright/test');
 const path = require('path');
-const { wrapPageForScreenshots } = require('../../helpers/screenshotHelper');
+const { visualStep } = require('../../helpers/visualStep');
 
 const baseURL = 'https://stage.lifesciences.danaher.com/';
 
@@ -9,39 +9,53 @@ const baseURL = 'https://stage.lifesciences.danaher.com/';
 async function acceptCookies(page) {
   const acceptBtn = page.getByRole('button', { name: /Accept/i });
   if (await acceptBtn.isVisible().catch(() => false)) {
-    await acceptBtn.click();
+    await visualStep(page, 'Click Accept Cookies', async () => {
+      await acceptBtn.click();
+    });
   }
 }
 
 // ---------------- Helper: Navigate to OpCo ----------------
 async function navigateToOpCoAndVerifyURL(page, name, urlPattern) {
   const opcoLink = page.getByRole('link', { name });
-  await expect(opcoLink).toBeVisible();
-  await expect(opcoLink).toBeEnabled();
 
-  await Promise.all([
-    page.waitForLoadState('domcontentloaded', { timeout: 30000 }),
-    opcoLink.click()
-  ]);
+  await visualStep(page, `Check visibility of ${name} link`, async () => {
+    await expect(opcoLink).toBeVisible();
+  });
+
+  await visualStep(page, `Check enabled state of ${name} link`, async () => {
+    await expect(opcoLink).toBeEnabled();
+  });
+
+  await visualStep(page, `Click ${name} link`, async () => {
+    await Promise.all([
+      page.waitForLoadState('domcontentloaded', { timeout: 30000 }),
+      opcoLink.click()
+    ]);
+  });
 
   await acceptCookies(page);
-  await page.locator('h1').first().waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
-  await expect(page).toHaveURL(urlPattern);
+
+  await visualStep(page, `Wait for h1 to be visible on ${name} page`, async () => {
+    await page.locator('h1').first().waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
+  });
+
+  await visualStep(page, `Verify URL pattern for ${name}`, async () => {
+    await expect(page).toHaveURL(urlPattern);
+  });
 }
 
 // ---------------- Test ----------------
 test('WE-03 Verify Each OpCo Link From Top Section', async ({ page }) => {
-  // Use SCREENSHOT_DIR from workflow, fallback to local folder
+  // Use SCREENSHOT_DIR from workflow (previews branch folder)
   const screenshotFolder = process.env.SCREENSHOT_DIR || path.join(__dirname, '..', '..', 'screenshots', 'local_run');
 
-  // Wrap page with screenshot proxy
-  const autoPage = wrapPageForScreenshots(page, screenshotFolder);
+  // Homepage step
+  await visualStep(page, 'Open Homepage', async () => {
+    await page.goto(baseURL);
+    await acceptCookies(page);
+  }, screenshotFolder); // pass folder explicitly
 
-  // Open homepage
-  await autoPage.goto(baseURL);
-  await acceptCookies(autoPage);
-
-  // List of OpCos
   const opCos = [
     ['Abcam', /abcam\.com/],
     ['Beckman Coulter', /mybeckman/],
@@ -56,11 +70,13 @@ test('WE-03 Verify Each OpCo Link From Top Section', async ({ page }) => {
   ];
 
   for (const [name, urlPattern] of opCos) {
-    // Navigate to OpCo and verify
-    await navigateToOpCoAndVerifyURL(autoPage, name, urlPattern);
+    await visualStep(page, `Navigate to ${name}`, async () => {
+      await navigateToOpCoAndVerifyURL(page, name, urlPattern);
+    }, screenshotFolder);
 
-    // Return to homepage for next OpCo
-    await autoPage.goto(baseURL);
-    await acceptCookies(autoPage);
+    await visualStep(page, `Return to Homepage after ${name}`, async () => {
+      await page.goto(baseURL);
+      await acceptCookies(page);
+    }, screenshotFolder);
   }
 });
