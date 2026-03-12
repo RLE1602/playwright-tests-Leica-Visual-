@@ -3,7 +3,7 @@ const path = require('path');
 const XLSX = require('xlsx');
 
 try {
-  const jsonFile = path.join(process.cwd(), 'test-results.json');
+  let jsonFile = path.join(process.cwd(), 'test-results.json');
   const previewsRoot = path.join(process.cwd(), 'previews');
 
   // 🔹 🔥 UPDATE THESE 3 VALUES
@@ -21,50 +21,27 @@ try {
 
   const rows = [];
 
-  // 🔹 NEW: remove ANSI color codes from Playwright errors
-  function cleanErrorMessage(msg) {
-    if (!msg) return '-';
-
-    const clean = msg.replace(/\x1B\[[0-9;]*m/g, '');
-
-    return clean
-      .split('\n')
-      .slice(0, 3)
-      .join(' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
-
-  // 🔹 NEW: extract exact failed test code line
-  function getFailedCodeLine(filePath, lineNumber) {
-    try {
-      const content = fs.readFileSync(filePath, 'utf8').split('\n');
-      return content[lineNumber - 1]?.trim() || '-';
-    } catch {
-      return '-';
-    }
-  }
-
-  // 🔥 Browser-aware screenshot finder
-  function findLatestFailedScreenshot(specTitle, browser) {
+  // 🔥 Find latest retry screenshot
+  function findLatestFailedScreenshot() {
     if (!fs.existsSync(previewsRoot)) return [];
 
     let screenshots = [];
 
     const walk = (dir) => {
-      fs.readdirSync(dir).forEach((file) => {
+      const files = fs.readdirSync(dir);
+
+      files.forEach((file) => {
         const fullPath = path.join(dir, file);
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-          walk(dir);
-        } else if (
-          file.includes(specTitle) &&
-          file.includes(browser) &&
-          (/^test-failed-\d+\.png$/.test(file) || /^test-finished-\d+\.png$/.test(file))
-        ) {
+          walk(fullPath);
+        } else if (/^test-failed-\d+\.png$/.test(file) || /^test-finished-\d+\.png$/.test(file)) {
+          const retryNumber = parseInt(file.match(/\d+/)[0], 10);
+
           screenshots.push({
             fullPath,
+            retry: retryNumber,
             time: stat.mtimeMs
           });
         }
@@ -74,11 +51,12 @@ try {
     walk(previewsRoot);
 
     if (screenshots.length === 0) return [];
+
     screenshots.sort((a, b) => b.time - a.time);
+
     return [screenshots[0].fullPath];
   }
 
-  // 🔥 Generate rows
   data.suites?.forEach((suite) => {
     suite.specs?.forEach((spec) => {
       spec.tests?.forEach((test) => {
@@ -94,20 +72,10 @@ try {
           : '0.00';
 
         const previews = result.status === 'failed'
-          ? findLatestFailedScreenshot(specTitle, test.projectName)
+          ? findLatestFailedScreenshot()
           : [];
 
         const mediaFullPath = previews.length ? previews[0] : '-';
-
-        // 🔹 NEW: build clean failure description
-        const cleanError = cleanErrorMessage(result.error?.message);
-
-        const failedCode =
-          failureLocation?.file && failureLocation?.line
-            ? getFailedCodeLine(failureLocation.file, failureLocation.line)
-            : '-';
-
-        const failedStepDescription = `${failedCode} | ${cleanError}`;
 
         // 🔥 Determine Severity
         let severity = '-';
@@ -116,24 +84,26 @@ try {
 
           if (/404|not\s+found|page\s+could\s+not\s+be\s+found/i.test(msg)) {
             severity = 'High';
-          } else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
+          }
+          else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
             severity = 'Critical';
-          } else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
+          }
+          else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
             severity = 'Medium';
           }
         }
 
         rows.push({
+          //Suite: suite.title || 'Root Suite',
           Suite: "Regression_LSIG",
           Release: "43",
           Category: "LSIG-eCom",
           'Scenario Name': specTitle,
+          //'Test Case ID': testTitle.replace(/\s+/g, '_'),
+          //'Test Case Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
-
-          // 🔹 UPDATED FIELD
-          'Failed Step Description': failedStepDescription,
-
+          'Failed Step Description': result.error?.message || '-',
           'Duration (min)': durationMin,
           Retry: result.retry || 0,
           Browser: test.projectName || 'unknown',
@@ -148,7 +118,6 @@ try {
     });
   });
 
-  // 🔥 Create workbook
   const workbook = XLSX.utils.book_new();
   const worksheet = XLSX.utils.json_to_sheet(rows, {
     header: [
@@ -156,6 +125,9 @@ try {
       'Release',
       'Category',
       'Scenario Name',
+      //'Test Case ID',
+      //'Test Case Name',
+
       'Step Number',
       'Status',
       'Failed Step Description',
@@ -168,15 +140,19 @@ try {
     ]
   });
 
-  // 🔥 Convert Media Links to GitHub RAW clickable links
+  // 🔥 Convert to GitHub RAW clickable links
   rows.forEach((row, index) => {
     if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `L${index + 2}`;
+      const cellAddress = `J${index + 2}`;
 
-      const relativeRepoPath = path.relative(process.cwd(), row['Media Link']).replace(/\\/g, "/");
+      // Convert local path to repo-relative path
+      const relativeRepoPath = row['Media Link']
+        .replace(/\\/g, "/")
+        .replace(/^.*previews\//, "previews/");
 
-      const githubRawUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitHash}/${relativeRepoPath}`;
+      const githubRawUrl =
+        `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitHash}/${relativeRepoPath}`;
 
       worksheet[cellAddress] = {
         t: 's',
