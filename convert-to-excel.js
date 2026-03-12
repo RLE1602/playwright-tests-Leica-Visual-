@@ -77,6 +77,22 @@ try {
 
         const mediaFullPath = previews.length ? previews[0] : '-';
 
+        // 🔥 Determine Severity
+        let severity = '-';
+        if (result.status === 'failed' && result.error?.message) {
+          const msg = result.error.message.toLowerCase();
+
+          if (/404|not\s+found|page\s+could\s+not\s+be\s+found/i.test(msg)) {
+            severity = 'High';
+          }
+          else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
+            severity = 'Critical';
+          }
+          else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
+            severity = 'Medium';
+          }
+        }
+
         rows.push({
           Suite: suite.title || 'Root Suite',
           'Test Case ID': testTitle.replace(/\s+/g, '_'),
@@ -88,6 +104,7 @@ try {
           Retry: result.retry || 0,
           Browser: test.projectName || 'unknown',
           'Media Link': mediaFullPath,
+          Severity: severity,
           'Execution Date': result.startTime
             ? new Date(result.startTime).toISOString().split('T')[0]
             : '-',
@@ -110,6 +127,7 @@ try {
       'Retry',
       'Browser',
       'Media Link',
+      'Severity',
       'Execution Date'
     ]
   });
