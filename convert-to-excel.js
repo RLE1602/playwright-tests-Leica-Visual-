@@ -3,7 +3,7 @@ const path = require('path');
 const XLSX = require('xlsx');
 
 try {
-  let jsonFile = path.join(process.cwd(), 'test-results.json');
+  const jsonFile = path.join(process.cwd(), 'test-results.json');
   const previewsRoot = path.join(process.cwd(), 'previews');
 
   // 🔹 🔥 UPDATE THESE 3 VALUES
@@ -21,27 +21,26 @@ try {
 
   const rows = [];
 
-  // 🔥 Find latest retry screenshot
-  function findLatestFailedScreenshot() {
+  // 🔥 Browser-aware screenshot finder
+  function findLatestFailedScreenshot(specTitle, browser) {
     if (!fs.existsSync(previewsRoot)) return [];
 
     let screenshots = [];
 
     const walk = (dir) => {
-      const files = fs.readdirSync(dir);
-
-      files.forEach((file) => {
+      fs.readdirSync(dir).forEach((file) => {
         const fullPath = path.join(dir, file);
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
           walk(fullPath);
-        } else if (/^test-failed-\d+\.png$/.test(file) || /^test-finished-\d+\.png$/.test(file)) {
-          const retryNumber = parseInt(file.match(/\d+/)[0], 10);
-
+        } else if (
+          file.includes(specTitle) &&
+          file.includes(browser) &&
+          (/^test-failed-\d+\.png$/.test(file) || /^test-finished-\d+\.png$/.test(file))
+        ) {
           screenshots.push({
             fullPath,
-            retry: retryNumber,
             time: stat.mtimeMs
           });
         }
@@ -51,12 +50,11 @@ try {
     walk(previewsRoot);
 
     if (screenshots.length === 0) return [];
-
     screenshots.sort((a, b) => b.time - a.time);
-
     return [screenshots[0].fullPath];
   }
 
+  // 🔥 Generate rows
   data.suites?.forEach((suite) => {
     suite.specs?.forEach((spec) => {
       spec.tests?.forEach((test) => {
@@ -72,7 +70,7 @@ try {
           : '0.00';
 
         const previews = result.status === 'failed'
-          ? findLatestFailedScreenshot()
+          ? findLatestFailedScreenshot(specTitle, test.projectName)
           : [];
 
         const mediaFullPath = previews.length ? previews[0] : '-';
@@ -84,23 +82,18 @@ try {
 
           if (/404|not\s+found|page\s+could\s+not\s+be\s+found/i.test(msg)) {
             severity = 'High';
-          }
-          else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
+          } else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
             severity = 'Critical';
-          }
-          else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
+          } else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
             severity = 'Medium';
           }
         }
 
         rows.push({
-          //Suite: suite.title || 'Root Suite',
           Suite: "Regression_LSIG",
           Release: "43",
           Category: "LSIG-eCom",
           'Scenario Name': specTitle,
-          //'Test Case ID': testTitle.replace(/\s+/g, '_'),
-          //'Test Case Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
           'Failed Step Description': result.error?.message || '-',
@@ -118,6 +111,7 @@ try {
     });
   });
 
+  // 🔥 Create workbook
   const workbook = XLSX.utils.book_new();
   const worksheet = XLSX.utils.json_to_sheet(rows, {
     header: [
@@ -125,9 +119,6 @@ try {
       'Release',
       'Category',
       'Scenario Name',
-      //'Test Case ID',
-      //'Test Case Name',
-
       'Step Number',
       'Status',
       'Failed Step Description',
@@ -140,19 +131,15 @@ try {
     ]
   });
 
-  // 🔥 Convert to GitHub RAW clickable links
+  // 🔥 Convert Media Links to GitHub RAW clickable links
   rows.forEach((row, index) => {
     if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `J${index + 2}`;
+      const cellAddress = `L${index + 2}`; // Correct column for Media Link
 
-      // Convert local path to repo-relative path
-      const relativeRepoPath = row['Media Link']
-        .replace(/\\/g, "/")
-        .replace(/^.*previews\//, "previews/");
+      const relativeRepoPath = path.relative(process.cwd(), row['Media Link']).replace(/\\/g, "/");
 
-      const githubRawUrl =
-        `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitHash}/${relativeRepoPath}`;
+      const githubRawUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitHash}/${relativeRepoPath}`;
 
       worksheet[cellAddress] = {
         t: 's',
