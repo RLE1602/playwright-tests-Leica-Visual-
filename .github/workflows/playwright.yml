@@ -40,9 +40,10 @@ jobs:
 
       - name: Upload screenshots to Argos
         run: |
-          [ -d "argos/chromium" ] && npx @argos-ci/cli upload argos/chromium
-          [ -d "argos/firefox" ] && npx @argos-ci/cli upload argos/firefox
-          [ -d "argos/webkit" ] && npx @argos-ci/cli upload argos/webkit
+          npx @argos-ci/cli upload argos/chromium || echo "No chromium screenshots to upload"
+          npx @argos-ci/cli upload argos/firefox || echo "No firefox screenshots to upload"
+          npx @argos-ci/cli upload argos/webkit || echo "No webkit screenshots to upload"
+  
         env:
           ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
 
@@ -74,3 +75,4 @@ jobs:
         env:
 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
