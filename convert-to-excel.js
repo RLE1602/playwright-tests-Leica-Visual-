@@ -21,6 +21,16 @@ try {
 
   const rows = [];
 
+  // 🔥 Clean Playwright error message (remove ANSI + keep first meaningful line)
+  function cleanErrorMessage(message) {
+    if (!message) return '-';
+
+    const noAnsi = message.replace(/\x1B\[[0-9;]*m/g, '');
+    const lines = noAnsi.split('\n').map(l => l.trim()).filter(Boolean);
+
+    return lines.length ? lines[0] : '-';
+  }
+
   // 🔥 Find latest retry screenshot
   function findLatestFailedScreenshot() {
     if (!fs.existsSync(previewsRoot)) return [];
@@ -103,10 +113,23 @@ try {
           //'Test Case Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
-          'Failed Step Description': result.error?.message || '-',
+
+          // 🔥 cleaned error message
+          'Failed Step Description': cleanErrorMessage(result.error?.message),
+
           'Duration (min)': durationMin,
           Retry: result.retry || 0,
-          Browser: test.projectName || 'unknown',
+
+          // 🔥 normalized browser names
+          Browser:
+            test.projectName === 'chromium'
+              ? 'chromium'
+              : test.projectName === 'firefox'
+              ? 'firefox'
+              : test.projectName === 'msedge'
+              ? 'Microsoft Edge'
+              : test.projectName || 'unknown',
+
           'Media Link': mediaFullPath,
           Severity: severity,
           'Execution Date': result.startTime
@@ -146,7 +169,6 @@ try {
 
       const cellAddress = `J${index + 2}`;
 
-      // Convert local path to repo-relative path
       const relativeRepoPath = row['Media Link']
         .replace(/\\/g, "/")
         .replace(/^.*previews\//, "previews/");
