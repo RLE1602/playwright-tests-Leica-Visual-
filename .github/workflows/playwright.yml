@@ -25,8 +25,9 @@ jobs:
         run: npx playwright install --with-deps
  
       - name: Run regression tests
+             TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
         env: 
-          PREVIEW_DIR: previews/${{ github.ref_name }}/$(date +%Y-%m-%d-%H%M%S)
+          PREVIEW_DIR: previews/${{ github.ref_name }}/$TIMESTAMP
         run: |
           echo "Using preview dir: $PREVIEW_DIR"
           mkdir -p "$PREVIEW_DIR"
@@ -59,4 +60,5 @@ jobs:
           git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
           git push
         env:
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
