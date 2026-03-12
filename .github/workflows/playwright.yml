@@ -34,16 +34,25 @@ jobs:
         run: |
           echo "Using preview dir: $PREVIEW_DIR"
           mkdir -p "$PREVIEW_DIR"
+          
+          # ✅ ADDED: Export SCREENSHOT_DIR so Playwright test knows where to save screenshots
+          export SCREENSHOT_DIR="$PREVIEW_DIR"
 
           # Do NOT fail workflow if tests fail
           npx playwright test tests/Regression_LSIG || true
+
+      - name: Upload screenshots as artifact
+        # ✅ ADDED: Upload previews folder as downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Playwright-Screenshots
+          path: previews/
 
       - name: Upload screenshots to Argos
         run: |
           npx @argos-ci/cli upload argos/chromium || echo "No chromium screenshots to upload"
           npx @argos-ci/cli upload argos/firefox || echo "No firefox screenshots to upload"
           npx @argos-ci/cli upload argos/webkit || echo "No webkit screenshots to upload"
-  
         env:
           ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
 
@@ -73,6 +82,4 @@ jobs:
           git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
           git push
         env:
-
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
