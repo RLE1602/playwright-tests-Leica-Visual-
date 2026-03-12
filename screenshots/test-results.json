@@ -1,0 +1,192 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\RLE1602\\Desktop\\Leica\\playwright.config.js",
+    "rootDir": "C:/Users/RLE1602/Desktop/Leica/tests/Regression_LSIG",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/RLE1602/Desktop/Leica/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/RLE1602/Desktop/Leica/tests/Regression_LSIG",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "regression-report",
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "C:\\Users\\RLE1602\\Desktop\\Leica\\node_modules\\@argos-ci\\playwright\\dist\\reporter.js",
+        {
+          "uploadToArgos": false
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "WE-03.spec.js",
+      "file": "WE-03.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "WE-03 Verify Each OpCo Link From Top Section",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2219,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Abcam' })\nExpected: enabled\nError: strict mode violation: getByRole('link', { name: 'Abcam' }) resolved to 2 elements:\n    1) <a class=\"flex items-center h-full group-hover:bg-danahergray-200\" href=\"https://www.abcam.com?utm_source=dhls_website&utm_medium=referral&utm_content=header\">…</a> aka getByRole('link', { name: 'Abcam', exact: true })\n    2) <a title=\"Browse Products\" href=\"https://stage.lifesciences.danaher.com/us/en/products/brands/abcam.html\" class=\"card-wrapper flex flex-col col-span-1 mx-auto justify-center max-w-xl overflow-hidden pl-8 pr-2 border-l-[0.5px] border-gray-300 transform transition duration-500 hover:scale-105\">…</a> aka getByRole('link', { name: 'abcam Helping to accelerate' })\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Abcam' })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Abcam' })\nExpected: enabled\nError: strict mode violation: getByRole('link', { name: 'Abcam' }) resolved to 2 elements:\n    1) <a class=\"flex items-center h-full group-hover:bg-danahergray-200\" href=\"https://www.abcam.com?utm_source=dhls_website&utm_medium=referral&utm_content=header\">…</a> aka getByRole('link', { name: 'Abcam', exact: true })\n    2) <a title=\"Browse Products\" href=\"https://stage.lifesciences.danaher.com/us/en/products/brands/abcam.html\" class=\"card-wrapper flex flex-col col-span-1 mx-auto justify-center max-w-xl overflow-hidden pl-8 pr-2 border-l-[0.5px] border-gray-300 transform transition duration-500 hover:scale-105\">…</a> aka getByRole('link', { name: 'abcam Helping to accelerate' })\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Abcam' })\u001b[22m\n\n    at stepFunc (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:27:28)\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:4:9)\n    at navigateToOpCoAndVerifyURL (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:26:9)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:74:7\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:4:3)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:73:5",
+                    "location": {
+                      "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
+                      "column": 28,
+                      "line": 27
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Check enabled state of ${name} link`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m expect(opcoLink)\u001b[33m.\u001b[39mtoBeEnabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Click ${name} link`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
+                        "column": 28,
+                        "line": 27
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('link', { name: 'Abcam' })\nExpected: enabled\nError: strict mode violation: getByRole('link', { name: 'Abcam' }) resolved to 2 elements:\n    1) <a class=\"flex items-center h-full group-hover:bg-danahergray-200\" href=\"https://www.abcam.com?utm_source=dhls_website&utm_medium=referral&utm_content=header\">…</a> aka getByRole('link', { name: 'Abcam', exact: true })\n    2) <a title=\"Browse Products\" href=\"https://stage.lifesciences.danaher.com/us/en/products/brands/abcam.html\" class=\"card-wrapper flex flex-col col-span-1 mx-auto justify-center max-w-xl overflow-hidden pl-8 pr-2 border-l-[0.5px] border-gray-300 transform transition duration-500 hover:scale-105\">…</a> aka getByRole('link', { name: 'abcam Helping to accelerate' })\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('link', { name: 'Abcam' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 25 |\u001b[39m\n \u001b[90m 26 |\u001b[39m   \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Check enabled state of ${name} link`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m     \u001b[36mawait\u001b[39m expect(opcoLink)\u001b[33m.\u001b[39mtoBeEnabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Click ${name} link`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at stepFunc (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:27:28)\u001b[22m\n\u001b[2m    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:4:9)\u001b[22m\n\u001b[2m    at navigateToOpCoAndVerifyURL (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:26:9)\u001b[22m\n\u001b[2m    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:74:7\u001b[22m\n\u001b[2m    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:4:3)\u001b[22m\n\u001b[2m    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:73:5\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-03-12T09:06:32.860Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "argos/screenshot/metadata___chromium/Open Homepage",
+                      "contentType": "application/json",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\attachments\\argos-screenshot-metadata-chromium-Open-Homepage-cc304ee914be58408f7615390794236feca1ffc4.json"
+                    },
+                    {
+                      "name": "argos/screenshot___chromium/Open Homepage",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\attachments\\argos-screenshot-chromium-Open-Homepage-86df432281ddf0652ad8e4dad073eed25e1cac52.png"
+                    },
+                    {
+                      "name": "argos/screenshot/metadata___chromium/Check visibility of Abcam link",
+                      "contentType": "application/json",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\attachments\\argos-screenshot-metadata-chromium-Check-visibility-of-Abcam-link-a4c6fde21293ed631fb38e99e063b3fa7cb0db64.json"
+                    },
+                    {
+                      "name": "argos/screenshot___chromium/Check visibility of Abcam link",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\attachments\\argos-screenshot-chromium-Check-visibility-of-Abcam-link-020c761aae76d29a9c03434c25578fdab9e92c1f.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
+                    "column": 28,
+                    "line": 27
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f24c0050e24b4ca212dd-843d6dd68874fe1405c1",
+          "file": "WE-03.spec.js",
+          "line": 49,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-03-12T09:06:32.007Z",
+    "duration": 3387.4549999999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
