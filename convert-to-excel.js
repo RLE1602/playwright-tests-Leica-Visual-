@@ -167,8 +167,7 @@ try {
   rows.forEach((row, index) => {
     if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `J${index + 2}`;
-
+      const cellAddress = `K${index + 2}`;
       const relativeRepoPath = row['Media Link']
         .replace(/\\/g, "/")
         .replace(/^.*previews\//, "previews/");
@@ -195,3 +194,4 @@ try {
   console.error('❌ Excel generation failed:', err);
   console.log('⚠ Continuing workflow despite Excel failure');
 }
+
