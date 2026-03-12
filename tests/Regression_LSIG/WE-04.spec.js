@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 
 // Define folder for screenshots
-const screenshotFolder = path.join(__dirname, '..', '..', 'screenshots', 'WE-04');
+const screenshotFolder = path.join(process.cwd(), '..', '..', 'screenshots', 'WE-04');
 
 // Create folder if it doesn't exist
 if (!fs.existsSync(screenshotFolder)) {
