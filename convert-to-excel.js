@@ -21,14 +21,29 @@ try {
 
   const rows = [];
 
-  // 🔥 Clean Playwright error message (remove ANSI + keep first meaningful line)
+  // 🔥 Clean Playwright error message (remove ANSI + readable for QA)
   function cleanErrorMessage(message) {
     if (!message) return '-';
 
+    // Remove ANSI codes
     const noAnsi = message.replace(/\x1B\[[0-9;]*m/g, '');
-    const lines = noAnsi.split('\n').map(l => l.trim()).filter(Boolean);
 
-    return lines.length ? lines[0] : '-';
+    // Split lines and remove empty lines
+    const lines = noAnsi.split('\n').map(l => l.trim()).filter(Boolean);
+    if (lines.length === 0) return '-';
+
+    // Keep first line + key info like Expected / Received / Locator
+    let description = lines[0];
+    lines.forEach(line => {
+      if (/Expected pattern:/i.test(line) || /Received string:/i.test(line) || /Locator:/i.test(line) || /Error:/i.test(line)) {
+        description += ' | ' + line;
+      }
+    });
+
+    // Optional truncation for readability
+    if (description.length > 400) description = description.slice(0, 400) + '...';
+
+    return description;
   }
 
   // 🔥 Find latest retry screenshot
@@ -104,23 +119,15 @@ try {
         }
 
         rows.push({
-          //Suite: suite.title || 'Root Suite',
           Suite: "Regression_LSIG",
           Release: "43",
           Category: "LSIG-eCom",
           'Scenario Name': specTitle,
-          //'Test Case ID': testTitle.replace(/\s+/g, '_'),
-          //'Test Case Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
-
-          // 🔥 cleaned error message
           'Failed Step Description': cleanErrorMessage(result.error?.message),
-
           'Duration (min)': durationMin,
           Retry: result.retry || 0,
-
-          // 🔥 normalized browser names
           Browser:
             test.projectName === 'chromium'
               ? 'chromium'
@@ -129,7 +136,6 @@ try {
               : test.projectName === 'msedge'
               ? 'Microsoft Edge'
               : test.projectName || 'unknown',
-
           'Media Link': mediaFullPath,
           Severity: severity,
           'Execution Date': result.startTime
@@ -148,9 +154,6 @@ try {
       'Release',
       'Category',
       'Scenario Name',
-      //'Test Case ID',
-      //'Test Case Name',
-
       'Step Number',
       'Status',
       'Failed Step Description',
@@ -194,4 +197,3 @@ try {
   console.error('❌ Excel generation failed:', err);
   console.log('⚠ Continuing workflow despite Excel failure');
 }
-
