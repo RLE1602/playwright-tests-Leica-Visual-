@@ -47,7 +47,7 @@ export default defineConfig({
     headless: true,
     viewport: { width: 1920, height: 1080 },
     slowMo: process.env.CI ? 0 : 200,
-    trace: 'retain-on-failure',
+    trace: 'on',
     screenshot: 'on',
     video: 'on',
     actionTimeout: process.env.CI ? 120_000 : 60_000,   // 2 min on CI, 30s locally
@@ -56,25 +56,6 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-
-  //   {
-  //     name: 'Regression_PHX_US',
-  //     testDir: './tests/Regression_PHX_US',
-  //     name: 'chromium',
-  //     use: { ...devices['Desktop Chrome'] },
-  //   },
-  //   {
-  //     name: 'Regression_LMS_US',
-  //     testDir: './tests/Regression_LMS_US',
-  //     name: 'chromium',
-  //     use: { ...devices['Desktop Chrome'] },
-  //   },
-  //   {
-  //     name: 'Regression_LSIG_US',
-  //     testDir: './tests/Regression_LSIG_US',
-  //     name: 'chromium',
-  //     use: { ...devices['Desktop Chrome'] },
-  //   },
     
     {
       name: 'chromium',
@@ -82,19 +63,19 @@ export default defineConfig({
       
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+    {
+      name: 'Microsoft Edge',
+      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    },
 
     /* Test against mobile viewports. */
     // {
