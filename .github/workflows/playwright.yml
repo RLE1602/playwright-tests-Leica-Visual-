@@ -39,7 +39,10 @@ jobs:
           npx playwright test tests/Regression_LSIG || true
 
       - name: Upload screenshots to Argos
-        run: npx @argos-ci/cli upload argos
+        run: |
+          [ -d "argos/chromium" ] && npx @argos-ci/cli upload argos/chromium
+          [ -d "argos/firefox" ] && npx @argos-ci/cli upload argos/firefox
+          [ -d "argos/webkit" ] && npx @argos-ci/cli upload argos/webkit
         env:
           ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
 
@@ -69,4 +72,5 @@ jobs:
           git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
           git push
         env:
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
