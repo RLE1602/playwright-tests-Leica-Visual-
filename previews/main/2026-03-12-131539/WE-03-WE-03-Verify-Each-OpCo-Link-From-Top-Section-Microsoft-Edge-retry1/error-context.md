@@ -1,0 +1,345 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Abcam" [ref=e8] [cursor=pointer]:
+            - /url: https://www.abcam.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Abcam" [ref=e10]
+        - listitem [ref=e11]:
+          - link "Beckman Coulter" [ref=e12] [cursor=pointer]:
+            - /url: https://www.beckman.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Beckman Coulter" [ref=e14]
+        - listitem [ref=e15]:
+          - link "Genedata" [ref=e16] [cursor=pointer]:
+            - /url: https://www.genedata.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Genedata" [ref=e18]
+        - listitem [ref=e19]:
+          - link "IDBS" [ref=e20] [cursor=pointer]:
+            - /url: https://www.idbs.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "IDBS" [ref=e22]
+        - listitem [ref=e23]:
+          - link "Leica" [ref=e24] [cursor=pointer]:
+            - /url: https://www.leica-microsystems.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Leica" [ref=e26]
+        - listitem [ref=e27]:
+          - link "Molecular Devices" [ref=e28] [cursor=pointer]:
+            - /url: http://www.moleculardevices.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Molecular Devices" [ref=e30]
+        - listitem [ref=e31]:
+          - link "Phenomenex" [ref=e32] [cursor=pointer]:
+            - /url: http://www.phenomenex.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Phenomenex" [ref=e34]
+        - listitem [ref=e35]:
+          - link "Sciex" [ref=e36] [cursor=pointer]:
+            - /url: https://sciex.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Sciex" [ref=e38]
+        - listitem [ref=e39]:
+          - link "Aldevron" [ref=e40] [cursor=pointer]:
+            - /url: https://www.aldevron.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "Aldevron" [ref=e42]
+        - listitem [ref=e43]:
+          - link "IDT" [ref=e44] [cursor=pointer]:
+            - /url: https://www.idtdna.com/pages?utm_source=dhls_website&utm_medium=referral&utm_content=header
+            - img "IDT" [ref=e46]
+      - generic [ref=e48]:
+        - link "Danaher" [ref=e49] [cursor=pointer]:
+          - /url: /
+          - img "Danaher" [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - link "Login Register" [ref=e55] [cursor=pointer]:
+                - /url: /us/en/login.html
+                - img [ref=e57]
+                - generic [ref=e59]: Login Register
+              - link "Quote 0" [ref=e60] [cursor=pointer]:
+                - /url: /us/en/quote-cart.html
+                - img [ref=e62]
+                - generic [ref=e64]: Quote
+                - generic [ref=e65]: "0"
+              - link "Cart 0" [ref=e66] [cursor=pointer]:
+                - /url: /us/en/e-buy/cart.html
+                - img [ref=e68]
+                - generic [ref=e70]:
+                  - generic [ref=e71]: Cart
+                  - generic [ref=e72]: "0"
+            - generic [ref=e75]:
+              - textbox "Search field with suggestions. Suggestions may be available under this field. To send, press Enter." [ref=e77]:
+                - /placeholder: Search
+              - button "Search" [ref=e79] [cursor=pointer]:
+                - img [ref=e81]
+          - navigation "Header Menu" [ref=e83]:
+            - link "Life Sciences" [ref=e84] [cursor=pointer]:
+              - /url: /
+            - link "Solutions" [ref=e85] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/solutions.html
+              - text: Solutions
+              - img [ref=e87]
+            - link "Driving Results" [ref=e89] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/we-see-a-way.html
+            - link "Products" [ref=e90] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/products.html
+              - text: Products
+              - img [ref=e92]
+            - link "Support" [ref=e94] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/expert.html
+            - link "Resources" [ref=e95] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html#
+              - text: Resources
+              - img [ref=e97]
+            - link "About Us" [ref=e99] [cursor=pointer]:
+              - /url: https://stage.lifesciences.danaher.com/us/en/about-us.html
+  - list [ref=e102]:
+    - listitem [ref=e103]:
+      - link [ref=e104] [cursor=pointer]:
+        - /url: /
+        - img [ref=e105]
+      - img [ref=e108]
+    - listitem [ref=e110]:
+      - link [ref=e111] [cursor=pointer]:
+        - /url: /us/en/products.html
+        - text: Products
+      - img [ref=e112]
+    - listitem [ref=e114]:
+      - link [ref=e115] [cursor=pointer]:
+        - /url: /us/en/products.html
+        - text: Our Brands
+      - img [ref=e116]
+    - listitem [ref=e118]:
+      - link [ref=e119] [cursor=pointer]:
+        - /url: /us/en/products/brands/beckman-coulter-life-sciences.html
+        - text: Beckman Coulter Life Sciences
+  - main [ref=e120]:
+    - generic [ref=e124]:
+      - generic [ref=e126]:
+        - paragraph
+        - img "Brand Image" [ref=e127]
+        - heading "Advancing healthcare, research and discovery for more than 80 years" [level=1] [ref=e128]
+        - link "Browse Categories" [ref=e129] [cursor=pointer]:
+          - /url: "#product-categories"
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e133]:
+            - img "Optima™ MAX-XP Ultracentrifuge" [ref=e134]
+            - heading "Optima™ MAX-XP Ultracentrifuge" [level=2] [ref=e135]
+            - paragraph [ref=e136]: Ultracentrifuges
+            - list [ref=e139]:
+              - listitem [ref=e140]: 194.4 mL max rotor capacity
+              - listitem [ref=e141]: 150,000 max RPM
+              - listitem [ref=e142]:
+                - text: 1,019,000 x
+                - emphasis [ref=e143]: g
+              - listitem [ref=e144]: Security and tracking
+              - listitem [ref=e145]: Remote monitoring and control
+              - listitem [ref=e146]: On-screen rotor library
+            - link "View Product" [ref=e147] [cursor=pointer]:
+              - /url: /us/en/products/family/optima-max-xp-ultracentrifuges.html
+          - generic [ref=e149]:
+            - img "CytoFLEX Flow Cytometer" [ref=e150]
+            - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e151]
+            - paragraph [ref=e152]: Research Flow Cytometers
+            - paragraph [ref=e155]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+            - link "View Product" [ref=e156] [cursor=pointer]:
+              - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+          - generic [ref=e158]:
+            - heading "We See a Way to" [level=2] [ref=e160]
+            - paragraph [ref=e161]: Reduce manual lab work in clone screening by 90% with the Power of One.
+            - paragraph [ref=e164]: Beckman Coulter Life Sciences | Cydem VT Automated Clone Screening System
+            - link "View Product" [ref=e165] [cursor=pointer]:
+              - /url: /us/en/we-see-a-way/cydem-vt-reduce-90.html
+          - generic [ref=e168]:
+            - img "Optima™ MAX-XP Ultracentrifuge" [ref=e169]
+            - heading "Optima™ MAX-XP Ultracentrifuge" [level=2] [ref=e170]
+            - paragraph [ref=e171]: Ultracentrifuges
+            - list [ref=e174]:
+              - listitem [ref=e175]: 194.4 mL max rotor capacity
+              - listitem [ref=e176]: 150,000 max RPM
+              - listitem [ref=e177]:
+                - text: 1,019,000 x
+                - emphasis [ref=e178]: g
+              - listitem [ref=e179]: Security and tracking
+              - listitem [ref=e180]: Remote monitoring and control
+              - listitem [ref=e181]: On-screen rotor library
+            - link "View Product" [ref=e182] [cursor=pointer]:
+              - /url: /us/en/products/family/optima-max-xp-ultracentrifuges.html
+          - generic [ref=e184]:
+            - img "CytoFLEX Flow Cytometer" [ref=e185]
+            - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e186]
+            - paragraph [ref=e187]: Research Flow Cytometers
+            - paragraph [ref=e190]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+            - link "View Product" [ref=e191] [cursor=pointer]:
+              - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+        - generic [ref=e192]:
+          - button [ref=e193] [cursor=pointer]:
+            - img [ref=e195]
+          - generic [ref=e197]: 1/3
+          - button [ref=e198] [cursor=pointer]:
+            - img [ref=e200]
+    - generic [ref=e205]:
+      - heading "Product Categories" [level=2] [ref=e207]
+      - link "Assay Kits Assay Kits Browse Products" [ref=e209] [cursor=pointer]:
+        - /url: /us/en/products/assay-kits.html
+        - img "Assay Kits" [ref=e210]
+        - paragraph [ref=e211]: Assay Kits
+        - link "Browse Products" [ref=e212]:
+          - /url: /us/en/products/assay-kits.html
+          - text: Browse Products
+          - img [ref=e214]
+    - generic [ref=e223]:
+      - img "Banner image" [ref=e224]
+      - generic [ref=e225]:
+        - paragraph [ref=e226]: We See a Way to reduce manual lab work in clone screening by 90% with the Power of One.
+        - link "Discover how" [ref=e227] [cursor=pointer]:
+          - /url: /us/en/we-see-a-way/cydem-vt-reduce-90.html
+          - text: Discover how
+          - img [ref=e229]
+    - generic [ref=e234]:
+      - img "Flow Cytometers" [ref=e237]
+      - generic [ref=e239]:
+        - paragraph [ref=e240]: Flow Cytometers
+        - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e241]
+        - paragraph [ref=e244]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+        - link "Learn More" [ref=e245] [cursor=pointer]:
+          - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+    - generic [ref=e253]:
+      - generic [ref=e254]:
+        - heading "Accelerating answers to your important questions" [level=2] [ref=e255]
+        - paragraph [ref=e258]: Beckman Coulter Life Sciences is a leading developer of scientific research technologies that primarily serve the academia and pharmaceutical markets. The company also develops and manufacture solutions for clinical research and for applied markets such as agricultural, food and beverage, gas and oil, aerospace, and several others.
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - img "Workflow solutions" [ref=e261]
+          - generic [ref=e262]:
+            - heading "Workflow solutions" [level=3] [ref=e263]
+            - generic [ref=e264]: Discover workflow solutions utilizing the latest technology
+            - link "View Solutions" [ref=e265] [cursor=pointer]:
+              - /url: /us/en/solutions.html
+              - text: View Solutions
+              - img [ref=e267]
+        - generic [ref=e269]:
+          - img "Talk to an expert" [ref=e270]
+          - generic [ref=e271]:
+            - heading "Talk to an expert" [level=3] [ref=e272]
+            - generic [ref=e273]: Speak to one of our world-leading life sciences experts
+            - link "Connect With Us" [ref=e274] [cursor=pointer]:
+              - /url: /us/en/expert.html
+              - text: Connect With Us
+              - img [ref=e276]
+        - generic [ref=e278]:
+          - img "Signup for our newsletter" [ref=e279]
+          - generic [ref=e280]:
+            - heading "Signup for our newsletter" [level=3] [ref=e281]
+            - generic [ref=e282]: Stay connected with us and receive exciting news and announcements
+            - link "Subscribe Now" [ref=e283] [cursor=pointer]:
+              - /url: /us/en/connect/newsletter.html
+              - text: Subscribe Now
+              - img [ref=e285]
+    - generic [ref=e290]:
+      - img "Tip-Based Liquid Handlers" [ref=e293]
+      - generic [ref=e295]:
+        - paragraph [ref=e296]: Tip-Based Liquid Handlers
+        - heading "Biomek NGeniuS Next Generation Library Prep System" [level=2] [ref=e297]
+        - paragraph [ref=e300]: Automation for NGS library preparation
+        - link "Learn More" [ref=e301] [cursor=pointer]:
+          - /url: /us/en/products/family/biomek-ngenius-next-generation-library-prep-systems.html
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - heading "Beckman Coulter Life Sciences in the news" [level=2] [ref=e309]
+        - link "See all" [ref=e310] [cursor=pointer]:
+          - /url: /us/en/news
+          - text: See all
+          - img [ref=e312]
+      - list [ref=e314]:
+        - listitem [ref=e315]:
+          - link "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation Beckman Coulter Life Sciences June 05, 20242 min read Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation Read Article →" [ref=e316] [cursor=pointer]:
+            - /url: /us/en/news/assay-for-rapid-antibody-aggregation-detection.html
+            - img "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation" [ref=e317]
+            - generic [ref=e318]:
+              - paragraph [ref=e319]: Beckman Coulter Life Sciences
+              - paragraph [ref=e320]:
+                - time [ref=e321]: June 05, 2024
+                - text: 2 min read
+              - heading "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation" [level=3] [ref=e322]
+              - generic [ref=e323]:
+                - text: Read Article →
+                - img [ref=e325]
+        - listitem [ref=e327]:
+          - link "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations Beckman Coulter Life Sciences May 03, 20243 min read Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations Read Article →" [ref=e328] [cursor=pointer]:
+            - /url: /us/en/news/hands-free-sample-preparation-flow-cytometry.html
+            - img "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations" [ref=e329]
+            - generic [ref=e330]:
+              - paragraph [ref=e331]: Beckman Coulter Life Sciences
+              - paragraph [ref=e332]:
+                - time [ref=e333]: May 03, 2024
+                - text: 3 min read
+              - heading "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations" [level=3] [ref=e334]
+              - generic [ref=e335]:
+                - text: Read Article →
+                - img [ref=e337]
+        - listitem [ref=e339]:
+          - link "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer Beckman Coulter Life Sciences April 16, 20242 min read Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer Read Article →" [ref=e340] [cursor=pointer]:
+            - /url: /us/en/news/beckman-launches-qbd12002b-total-organic-carbon-analyzer.html
+            - img "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer" [ref=e341]
+            - generic [ref=e342]:
+              - paragraph [ref=e343]: Beckman Coulter Life Sciences
+              - paragraph [ref=e344]:
+                - time [ref=e345]: April 16, 2024
+                - text: 2 min read
+              - heading "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer" [level=3] [ref=e346]
+              - generic [ref=e347]:
+                - text: Read Article →
+                - img [ref=e349]
+    - generic [ref=e358]:
+      - generic [ref=e359]: Learn More
+      - generic [ref=e362]:
+        - paragraph [ref=e363]: Beckman Coulter Life Sciences
+        - paragraph [ref=e364]: 5350 Lakeview Parkway S Drive
+        - paragraph [ref=e365]: Indianapolis, IN 46268
+        - paragraph [ref=e366]: United States
+        - paragraph [ref=e367]:
+          - link "View in maps" [ref=e368] [cursor=pointer]:
+            - /url: https://www.google.com/maps/place/Beckman+Coulter+Life+Sciences/@39.8845247,%20-86.2573203,%2017z/data=!3m1!4b1!4m6!3m5!1s0x886b557e67f5439b:0xadaea30dac5c887f!8m2!3d39.8845247!4d-86.2547454!16s%2Fg%2F11b7hj_nb7?authuser=0&entry=ttu&utm_source=dhls_website
+            - text: View in maps
+            - img [ref=e370]
+      - generic [ref=e372]:
+        - generic [ref=e375]:
+          - paragraph [ref=e376]: Call
+          - paragraph [ref=e377]:
+            - link "1 800 742 2345" [ref=e378] [cursor=pointer]:
+              - /url: tel:1%20800%20742%202345
+              - text: 1 800 742 2345
+              - img [ref=e380]
+        - generic [ref=e384]:
+          - paragraph [ref=e385]: Browse
+          - paragraph [ref=e386]:
+            - link "Visit Beckman Coulter Life Sciences" [ref=e387] [cursor=pointer]:
+              - /url: https://www.beckman.com/?utm_source=dhls_website&ajs_aid=d7cb7a36-ee62-4ebf-9406-8489302a9afe
+              - text: Visit Beckman Coulter Life Sciences
+              - img [ref=e389]
+    - generic [ref=e392]:
+      - generic [ref=e393]:
+        - img [ref=e395]
+        - heading "Item(s) Added to your Cart" [level=3] [ref=e397]
+        - img [ref=e399] [cursor=pointer]
+      - generic [ref=e401]:
+        - button "Continue Shopping" [ref=e402] [cursor=pointer]
+        - link "Checkout" [ref=e403] [cursor=pointer]:
+          - /url: /us/en/e-buy/addresses.html
+  - contentinfo
+  - dialog "Privacy" [ref=e406]:
+    - generic [ref=e407]:
+      - generic [ref=e408]:
+        - generic:
+          - generic [ref=e409]:
+            - text: We and our partners use cookies and other tracking technologies and some of the data you directly provide to us such as your contact details to improve your experience of using our website, provide you with personalized ads and content based on your interactions with these and other websites, allow you to share content on social media, to perform analytics and measure the effectiveness of our advertising campaigns. By clicking “Accept All Cookies”, you consent to this and to the sharing of this data with our partners (find the link below). You can change your consent preferences at any time in the “Cookie Settings” section at the bottom of our website. Review our Cookie Notice to learn more about our practices
+            - link "More information about your privacy, opens in a new tab" [ref=e410] [cursor=pointer]:
+              - /url: https://lifesciences.danaher.com/us/en/legal/cookies.html
+              - text: Cookie Notice
+          - button "Lifesciences Danaher Cookie Partners Details" [ref=e411] [cursor=pointer]
+      - generic [ref=e413]:
+        - button "Cookies Settings, Opens the preference center dialog" [ref=e414] [cursor=pointer]: Cookies Settings
+        - button "Accept All Cookies" [ref=e416] [cursor=pointer]
+```
