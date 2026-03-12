@@ -21,6 +21,30 @@ try {
 
   const rows = [];
 
+  // 🔹 NEW: remove ANSI color codes from Playwright errors
+  function cleanErrorMessage(msg) {
+    if (!msg) return '-';
+
+    const clean = msg.replace(/\x1B\[[0-9;]*m/g, '');
+
+    return clean
+      .split('\n')
+      .slice(0, 3)
+      .join(' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  // 🔹 NEW: extract exact failed test code line
+  function getFailedCodeLine(filePath, lineNumber) {
+    try {
+      const content = fs.readFileSync(filePath, 'utf8').split('\n');
+      return content[lineNumber - 1]?.trim() || '-';
+    } catch {
+      return '-';
+    }
+  }
+
   // 🔥 Browser-aware screenshot finder
   function findLatestFailedScreenshot(specTitle, browser) {
     if (!fs.existsSync(previewsRoot)) return [];
@@ -33,7 +57,7 @@ try {
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
-          walk(fullPath);
+          walk(dir);
         } else if (
           file.includes(specTitle) &&
           file.includes(browser) &&
@@ -75,6 +99,16 @@ try {
 
         const mediaFullPath = previews.length ? previews[0] : '-';
 
+        // 🔹 NEW: build clean failure description
+        const cleanError = cleanErrorMessage(result.error?.message);
+
+        const failedCode =
+          failureLocation?.file && failureLocation?.line
+            ? getFailedCodeLine(failureLocation.file, failureLocation.line)
+            : '-';
+
+        const failedStepDescription = `${failedCode} | ${cleanError}`;
+
         // 🔥 Determine Severity
         let severity = '-';
         if (result.status === 'failed' && result.error?.message) {
@@ -96,7 +130,10 @@ try {
           'Scenario Name': specTitle,
           'Step Number': failureLocation?.line ?? '-',
           Status: result.status || 'unknown',
-          'Failed Step Description': result.error?.message || '-',
+
+          // 🔹 UPDATED FIELD
+          'Failed Step Description': failedStepDescription,
+
           'Duration (min)': durationMin,
           Retry: result.retry || 0,
           Browser: test.projectName || 'unknown',
@@ -135,7 +172,7 @@ try {
   rows.forEach((row, index) => {
     if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `L${index + 2}`; // Correct column for Media Link
+      const cellAddress = `L${index + 2}`;
 
       const relativeRepoPath = path.relative(process.cwd(), row['Media Link']).replace(/\\/g, "/");
 
