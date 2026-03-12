@@ -94,7 +94,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 40022,
+                  "duration": 50621,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/mybeckman/\u001b[39m\nReceived string:  \u001b[31m\"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[22m\n",
                     "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/mybeckman/\u001b[39m\nReceived string:  \u001b[31m\"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[22m\n\n    at stepFn (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:47:26)\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:9)\n    at navigateToOpCoAndVerifyURL (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:46:11)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:72:7\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:3)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:71:5",
@@ -161,7 +161,7 @@
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-12T09:34:50.550Z",
+                  "startTime": "2026-03-12T12:29:07.786Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -205,8 +205,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-03-12T09:34:49.627Z",
-    "duration": 41575.666,
+    "startTime": "2026-03-12T12:29:06.394Z",
+    "duration": 53510.685,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,
