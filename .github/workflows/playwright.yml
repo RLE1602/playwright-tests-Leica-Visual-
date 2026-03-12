@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   capture:
     runs-on: ubuntu-latest
@@ -35,6 +38,11 @@ jobs:
           # Do NOT fail workflow if tests fail
           npx playwright test tests/Regression_LSIG || true
 
+      - name: Upload screenshots to Argos
+        run: npx @argos-ci/cli upload argos
+        env:
+          ARGOS_API_KEY: ${{ secrets.ARGOS_API_KEY }}
+
       - name: Convert JSON to Excel
         run: |
           npm install xlsx
@@ -62,4 +70,3 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
