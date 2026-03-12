@@ -1,9 +1,8 @@
-name: LSIG(DHLS website) with Organized Screenshots
+name: LSIG(DHLS website)
 
 on:
   push:
     branches: [ main ]
-  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -11,58 +10,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: true
+          persist-credentials: true  # allows push with GITHUB_TOKEN
 
-      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # 4️⃣ Install Playwright browsers
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # 5️⃣ Run regression tests with timestamped folder
       - name: Run regression tests
+        env: 
+          PREVIEW_DIR: previews/${{ github.ref_name }}/$TIMESTAMP
         run: |
+          # Create a timestamped preview folder
           TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
-          TIMESTAMP_DIR="previews/${GITHUB_REF_NAME}/${TIMESTAMP}"
-          echo "Saving previews to: $TIMESTAMP_DIR"
-          mkdir -p "$TIMESTAMP_DIR"
+          PREVIEW_DIR="previews/${GITHUB_REF_NAME}/${TIMESTAMP}"
+          echo "Using preview dir: $PREVIEW_DIR"
+          mkdir -p "$PREVIEW_DIR"
 
-          # Run Playwright tests
-          npx playwright test tests/Regression_LSIG --output="$TIMESTAMP_DIR" || true
+          # Do NOT fail workflow if tests fail
+          npx playwright test tests/Regression_LSIG || true
 
-      # 6️⃣ Organize screenshots/videos/traces into one folder
-      - name: Organize screenshots
-        run: |
-          TIMESTAMP_DIR="previews/${GITHUB_REF_NAME}/${TIMESTAMP}"
-          SCREENSHOTS_DIR="${TIMESTAMP_DIR}/screenshots"
-          mkdir -p "$SCREENSHOTS_DIR"
+          # Run Playwright tests, saving screenshots/videos to the preview dir
+          npx playwright test tests/Regression_LSIG --output="$PREVIEW_DIR" || true
 
-          # Move all PNG screenshots to screenshots folder
-          find "$TIMESTAMP_DIR" -name '*.png' -exec mv {} "$SCREENSHOTS_DIR" \;
-
-          # Move videos and traces similarly
-          find "$TIMESTAMP_DIR" -name '*.webm' -exec mv {} "$SCREENSHOTS_DIR" \;
-          find "$TIMESTAMP_DIR" -name '*.zip' -exec mv {} "$SCREENSHOTS_DIR" \;
-
-      # 7️⃣ Convert JSON to Excel
       - name: Convert JSON to Excel
         run: |
           npm install xlsx
           node convert-to-excel.js || echo "⚠ Excel generation failed, continuing workflow..."
 
-      # 8️⃣ Upload Excel Report
       - name: Upload Excel Report
         if: always()
         uses: actions/upload-artifact@v4
@@ -70,13 +54,11 @@ jobs:
           name: Playwright-Excel-Report
           path: Playwright_Test_Report.xlsx
 
-      # 9️⃣ Show preview structure
       - name: Show preview structure
         run: |
           echo "Preview folder structure:"
           ls -R previews || echo "No previews generated"
 
-      # 🔟 Commit previews/screenshots
       - name: Commit previews
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -85,8 +67,5 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           git add -f previews/
-          if git diff --cached --quiet; then
-            echo "No new previews to commit"
-          else
-            git commit -m "Update Playwright screenshots & videos [skip ci]"
-            git push
+          git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
+          git push
