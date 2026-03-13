@@ -167,9 +167,9 @@ header: [
 rows.forEach((row, index) => {
 if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `J${index + 2}`;
+const cellAddress = `J${index + 2}`;
 
-      const cellAddress = `K${index + 2}`;
+const cellAddress = `K${index + 2}`;
 const relativeRepoPath = row['Media Link']
 .replace(/\\/g, "/")
 .replace(/^.*previews\//, "previews/");
@@ -185,6 +185,41 @@ l: { Target: githubRawUrl }
 }
 });
 
+
+// 🔥 NEW LOGIC ADDED (FAILED SUMMARY TABLE)
+
+const failedRows = rows
+.filter(r => r.Status === 'failed')
+.map(r => ({
+Suite: r.Suite,
+Release: r.Release,
+Category: r.Category,
+'Scenario Name': r['Scenario Name'],
+'Step Number': r['Step Number'],
+Severity: r.Severity
+}));
+
+if (failedRows.length > 0) {
+
+const startRow = rows.length + 5;
+
+XLSX.utils.sheet_add_aoa(worksheet, [
+['Failed Test Case Summary']
+], { origin: `A${startRow}` });
+
+XLSX.utils.sheet_add_json(
+worksheet,
+failedRows,
+{
+origin: `A${startRow + 2}`,
+skipHeader: false
+}
+);
+
+}
+
+
+// 🔥 append sheet
 XLSX.utils.book_append_sheet(workbook, worksheet, 'Test Report');
 
 const excelFile = path.join(process.cwd(), 'Playwright_Test_Report.xlsx');
