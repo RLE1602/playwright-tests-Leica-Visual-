@@ -212,6 +212,31 @@ try {
 
   XLSX.utils.book_append_sheet(workbook, worksheet, "Test Report");
 
+  // Create Separate Failed Test Case Table
+const failedRows = rows
+  .filter(row => row.Status === "failed")
+  .map(row => ({
+    Suite: row.Suite,
+    Release: row.Release,
+    Category: row.Category,
+    "Scenario Name": row["Scenario Name"],
+    "Step Number": row["Step Number"],
+    Severity: row.Severity
+  }));
+
+const failedWorksheet = XLSX.utils.json_to_sheet(failedRows, {
+  header: [
+    "Suite",
+    "Release",
+    "Category",
+    "Scenario Name",
+    "Step Number",
+    "Severity"
+  ]
+});
+
+XLSX.utils.book_append_sheet(workbook, failedWorksheet, "Failed Test Cases");
+
   const excelFile = path.join(process.cwd(), "Playwright_Test_Report.xlsx");
 
   XLSX.writeFile(workbook, excelFile);
@@ -225,3 +250,4 @@ catch (err) {
   console.log("⚠ Continuing workflow despite Excel failure");
 
 }
+
