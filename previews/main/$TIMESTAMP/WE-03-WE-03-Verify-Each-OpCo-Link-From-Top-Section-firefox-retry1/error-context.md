@@ -1,7 +1,7 @@
 # Page snapshot
 
 ```yaml
-- generic [active] [ref=e1]:
+- generic [ref=e1]:
   - banner [ref=e2]:
     - generic [ref=e4]:
       - list [ref=e6]:
@@ -47,7 +47,7 @@
             - img "IDT" [ref=e46]
       - generic [ref=e48]:
         - link "Danaher" [ref=e49] [cursor=pointer]:
-          - /url: https://danaher.com/?utm_source=dhls_website&utm_medium=referral&utm_content=header
+          - /url: /
           - img "Danaher" [ref=e51]
         - generic [ref=e52]:
           - generic [ref=e53]:
@@ -88,254 +88,258 @@
             - link "Support" [ref=e94] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/expert.html
             - link "Resources" [ref=e95] [cursor=pointer]:
-              - /url: https://stage.lifesciences.danaher.com/#
+              - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html#
               - text: Resources
               - img [ref=e97]
             - link "About Us" [ref=e99] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/about-us.html
-  - main [ref=e100]:
-    - generic [ref=e102]:
-      - generic [ref=e103]:
-        - generic [ref=e106]:
-          - paragraph [ref=e107]: Digital & AI-Powered Solutions
-          - heading "Unifying Insight, Speed, and Precision across the Therapeutic Lifecycle" [level=2] [ref=e108]
-          - generic [ref=e109]:
-            - paragraph [ref=e110] [cursor=pointer]:
-              - link "Learn More" [ref=e111]:
-                - /url: /us/en/solutions/digital.html
-            - paragraph [ref=e112] [cursor=pointer]:
-              - link "Digital solutions" [ref=e113]:
-                - /url: /content/dam/danaher/solutions/digital/digital-solutions-hero.jpg
-        - generic [ref=e116]:
-          - paragraph [ref=e117]: Analytical Solutions
-          - heading "Enabling Faster, Data-Driven Drug Development" [level=2] [ref=e118]
-          - generic [ref=e119]:
-            - paragraph [ref=e120] [cursor=pointer]:
-              - link "Learn More" [ref=e121]:
-                - /url: /us/en/solutions/analytical.html
-            - paragraph [ref=e122] [cursor=pointer]:
-              - link "analytical solutions" [ref=e123]:
-                - /url: /content/dam/danaher/solutions/analytical/analytical-hero-2.jpg
-        - generic [ref=e124]:
-          - generic [ref=e126]:
-            - heading "Translating Human-Relevant Models to Clinical Success" [level=2] [ref=e127]
-            - paragraph
-            - paragraph [ref=e129] [cursor=pointer]:
-              - link "Learn More" [ref=e130]:
-                - /url: /us/en/solutions/small-molecule-drug-discovery/human-relevant-models.html
-          - img "HRM" [ref=e132]
-        - generic [ref=e133]:
-          - generic [ref=e135]:
-            - paragraph [ref=e136]: Together, we see a way to
-            - heading "improve drug candidate success rates by 25%" [level=1] [ref=e137]
-            - paragraph
-            - paragraph [ref=e139] [cursor=pointer]:
-              - link "Browse Solutions" [ref=e140]:
-                - /url: /us/en/solutions.html
-          - img "homepage" [ref=e142]
-      - generic [ref=e143]:
-        - button "Previous" [ref=e144] [cursor=pointer]:
-          - generic [ref=e145]:
-            - img [ref=e146]
-            - generic [ref=e148]: Previous
-        - generic [ref=e149]: 1/4
-        - button "Next" [ref=e150] [cursor=pointer]:
-          - generic [ref=e151]:
-            - img [ref=e152]
-            - generic [ref=e154]: Next
-    - generic [ref=e155]:
-      - heading "We see a way to" [level=2] [ref=e157]
-      - generic [ref=e159]:
-        - generic [ref=e160]:
-          - paragraph [ref=e162]:
-            - img [ref=e164]
-          - generic [ref=e165]:
-            - heading "Increase assay sensitivity by 50% using AI-based phenotypic classification." [level=3] [ref=e166]
-            - paragraph [ref=e167]:
-              - link "Explore ->" [ref=e168] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/genedata-screener-ai-organoid-assay-analysis.html
-        - generic [ref=e169]:
-          - paragraph [ref=e171]:
-            - img [ref=e173]
-          - generic [ref=e175]:
-            - heading "Boost in-house organoid production by 25 times" [level=3] [ref=e176]
-            - paragraph [ref=e177]:
-              - link "Explore ->" [ref=e178] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/automated-organoid-culture-cellxpress-ai.html
-        - generic [ref=e179]:
-          - paragraph [ref=e181]:
-            - img [ref=e183]
-          - generic [ref=e185]:
-            - heading "Train users 50% faster to image organoids and 3D cultures" [level=3] [ref=e186]
-            - paragraph [ref=e187]:
-              - strong [ref=e188]:
-                - link "Explore ->" [ref=e189] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/mica-microhub-3d-cell-imaging.html
-        - generic [ref=e190]:
-          - paragraph [ref=e192]:
-            - img [ref=e194]
-          - generic [ref=e196]:
-            - heading "Reduce time to assay from 17 days to just 2 days" [level=3] [ref=e197]
-            - paragraph [ref=e198]:
-              - link "Explore ->" [ref=e199] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/3d-ready-organoids-fast-reliable-research.html
-    - generic [ref=e201]:
-      - heading "Our principles" [level=2] [ref=e204]
-      - generic [ref=e205]:
-        - img "We partner deep" [ref=e209]
-        - generic [ref=e210]:
-          - generic [ref=e211]:
-            - generic "We partner deep" [ref=e212] [cursor=pointer]:
-              - heading "We partner deep" [level=3] [ref=e213]
-              - img [ref=e215]
-              - img [ref=e218]
-            - generic:
-              - generic:
-                - text: The right team will help you achieve measurably improved outcomes in utilization, cost, capacity, risk, and time. By offering you one point of contact, we source the right expertise from Danaher Life Sciences’ entire ecosystem of engineering, science, and technology innovators.
-                - link "Talk to an Expert -->" [ref=e220] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/expert.html
-          - generic [ref=e221]:
-            - generic "Integrated workflows" [ref=e222] [cursor=pointer]:
-              - heading "Integrated workflows" [level=3] [ref=e223]
-              - img [ref=e225]
-              - img [ref=e228]
-            - generic:
-              - generic:
-                - text: Critical to your team and unique to Danaher are Solution Architects, who look at your entire bioprocess—not just fragments of it— to eliminate bottlenecks, pain points, and redundant steps along your R&D pathway. How? We innovatively integrate, automate, and digitalize your complex workflows— end to end—to deliver quantifiable value across your labs.
-                - link "See Our Workflows -->" [ref=e230] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/solutions.html
-          - generic [ref=e231]:
-            - generic "Driving efficiency" [ref=e232] [cursor=pointer]:
-              - heading "Driving efficiency" [level=3] [ref=e233]
-              - img [ref=e235]
-              - img [ref=e238]
-            - generic:
-              - generic:
-                - text: The Danaher Business System powers our constant cycle of change and improvement. This unique approach allows our exceptional people to develop innovative recommendations, then realize them using world-class solutions and products to construct sustainable processes, resulting in superior outcomes.
-                - link "See Our Process -->" [ref=e240] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/solutions.html
-    - generic [ref=e241]:
-      - heading "Browse, consult, and stay ahead with our expert-curated insights." [level=2] [ref=e243]
-      - generic [ref=e245]:
-        - generic [ref=e246]:
-          - paragraph [ref=e248]:
-            - img [ref=e250]
-          - generic [ref=e252]:
-            - heading "Browse product catalog" [level=3] [ref=e253]
-            - paragraph [ref=e254]:
-              - text: Our capabilities extend beyond research to power the creation of biopharmaceuticals, cell and gene therapies and other breakthrough treatments.
-              - strong [ref=e255]:
-                - link "Shop now ->" [ref=e256] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/products.html
-        - generic [ref=e257]:
-          - paragraph [ref=e259]:
-            - img [ref=e261]
-          - generic [ref=e263]:
-            - heading "Talk to an expert" [level=3] [ref=e264]
-            - paragraph [ref=e265]:
-              - text: Our experts apply technology and proven solutions, working with you to design and implement integrated workflow solutions.
-              - link "Discover how we can help ->" [ref=e266] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/expert.html
-        - generic [ref=e267]:
-          - paragraph [ref=e269]:
-            - img [ref=e271]
-          - generic [ref=e273]:
-            - heading "Sign up for our newsletter" [level=3] [ref=e274]
-            - paragraph [ref=e275]:
-              - text: We’re always thinking ahead. Learn how we ensure that you can do the same.
-              - link "Subscribe today ->" [ref=e276] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/connect/newsletter.html
-    - generic [ref=e280]:
-      - generic [ref=e282]:
-        - paragraph [ref=e283]: SCIEX
-        - heading "Intabio ZT System" [level=2] [ref=e284]
-        - paragraph [ref=e285]: Comprehensive charge variant analysis made simple
-        - paragraph [ref=e286]: The Intabio ZT system couples icIEF separation and UV detection with high resolution mass spectrometry on the ZenoTOF 7600 system.
+  - list [ref=e102]:
+    - listitem [ref=e103]:
+      - link [ref=e104] [cursor=pointer]:
+        - /url: /
+        - img [ref=e105]
+      - img [ref=e108]
+    - listitem [ref=e110]:
+      - link [ref=e111] [cursor=pointer]:
+        - /url: /us/en/products.html
+        - text: Products
+      - img [ref=e112]
+    - listitem [ref=e114]:
+      - link [ref=e115] [cursor=pointer]:
+        - /url: /us/en/products.html
+        - text: Our Brands
+      - img [ref=e116]
+    - listitem [ref=e118]:
+      - link [ref=e119] [cursor=pointer]:
+        - /url: /us/en/products/brands/beckman-coulter-life-sciences.html
+        - text: Beckman Coulter Life Sciences
+  - main [ref=e120]:
+    - generic [ref=e124]:
+      - generic [ref=e126]:
         - paragraph
-        - paragraph [ref=e288] [cursor=pointer]:
-          - link "View Product" [ref=e289]:
-            - /url: /us/en/products/family/intabio-zt-systems.html
-      - img "Intabio" [ref=e291]
-    - generic [ref=e294]:
-      - link "abcam Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research. Browse Products →" [ref=e296] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/abcam.html
-        - generic [ref=e299]:
-          - heading "abcam" [level=3] [ref=e300]
-          - paragraph [ref=e301]: Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research.
-          - paragraph
-          - link "Browse Products →" [ref=e302]:
-            - /url: /us/en/products/brands/abcam.html
-      - link "Aldevron Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence. Learn More →" [ref=e304] [cursor=pointer]:
-        - /url: https://www.aldevron.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-        - generic [ref=e307]:
-          - heading "Aldevron" [level=3] [ref=e308]
-          - paragraph [ref=e309]: Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence.
-          - paragraph
-          - link "Learn More →" [ref=e310]:
-            - /url: https://www.aldevron.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-      - link "Beckman Coulter Life Sciences For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care. Browse Products →" [ref=e312] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html
-        - generic [ref=e315]:
-          - heading "Beckman Coulter Life Sciences" [level=3] [ref=e316]
-          - paragraph [ref=e317]: For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care.
-          - paragraph
-          - link "Browse Products →" [ref=e318]:
-            - /url: /us/en/products/brands/beckman-coulter-life-sciences.html
-      - link "Genedata Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes. Learn More →" [ref=e320] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/genedata.html
-        - generic [ref=e323]:
-          - heading "Genedata" [level=3] [ref=e324]
-          - paragraph [ref=e325]: Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes.
-          - paragraph
-          - link "Learn More →" [ref=e326]:
-            - /url: /us/en/products/brands/genedata.html
-      - link "IDBS IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain. Browse Products →" [ref=e328] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/idbs.html
-        - generic [ref=e331]:
-          - heading "IDBS" [level=3] [ref=e332]
-          - paragraph [ref=e333]: IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain.
-          - paragraph
-          - link "Browse Products →" [ref=e334]:
-            - /url: /us/en/products/brands/idbs.html
-      - link "IDT IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research. Learn More →" [ref=e336] [cursor=pointer]:
-        - /url: https://www.idtdna.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-        - generic [ref=e339]:
-          - heading "IDT" [level=3] [ref=e340]
-          - paragraph [ref=e341]: IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research.
-          - paragraph
-          - link "Learn More →" [ref=e342]:
-            - /url: https://www.idtdna.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-      - link "Leica Microsystems Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways. Browse Products →" [ref=e344] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/leica.html
-        - generic [ref=e347]:
-          - heading "Leica Microsystems" [level=3] [ref=e348]
-          - paragraph [ref=e349]: Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways.
-          - paragraph
-          - link "Browse Products →" [ref=e350]:
-            - /url: /us/en/products/brands/leica.html
-      - link "Molecular Devices Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development. Browse Products →" [ref=e352] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/molecular-devices.html
-        - generic [ref=e355]:
-          - heading "Molecular Devices" [level=3] [ref=e356]
-          - paragraph [ref=e357]: Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development.
-          - paragraph
-          - link "Browse Products →" [ref=e358]:
-            - /url: /us/en/products/brands/molecular-devices.html
-      - link "Phenomenex Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges. Browse Products →" [ref=e360] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/phenomenex.html
-        - generic [ref=e363]:
-          - heading "Phenomenex" [level=3] [ref=e364]
-          - paragraph [ref=e365]: Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges.
-          - paragraph
-          - link "Browse Products →" [ref=e366]:
-            - /url: /us/en/products/brands/phenomenex.html
-      - link "SCIEX At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all. Browse Products →" [ref=e368] [cursor=pointer]:
-        - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/sciex.html
-        - generic [ref=e371]:
-          - heading "SCIEX" [level=3] [ref=e372]
-          - paragraph [ref=e373]: At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all.
-          - paragraph
-          - link "Browse Products →" [ref=e374]:
-            - /url: /us/en/products/brands/sciex.html
+        - img "Brand Image" [ref=e127]
+        - heading "Advancing healthcare, research and discovery for more than 80 years" [level=1] [ref=e128]
+        - link "Browse Categories" [ref=e129] [cursor=pointer]:
+          - /url: "#product-categories"
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e133]:
+            - img "Optima™ MAX-XP Ultracentrifuge" [ref=e134]
+            - heading "Optima™ MAX-XP Ultracentrifuge" [level=2] [ref=e135]
+            - paragraph [ref=e136]: Ultracentrifuges
+            - list [ref=e139]:
+              - listitem [ref=e140]: 194.4 mL max rotor capacity
+              - listitem [ref=e141]: 150,000 max RPM
+              - listitem [ref=e142]:
+                - text: 1,019,000 x
+                - emphasis [ref=e143]: g
+              - listitem [ref=e144]: Security and tracking
+              - listitem [ref=e145]: Remote monitoring and control
+              - listitem [ref=e146]: On-screen rotor library
+            - link "View Product" [ref=e147] [cursor=pointer]:
+              - /url: /us/en/products/family/optima-max-xp-ultracentrifuges.html
+          - generic [ref=e149]:
+            - img "CytoFLEX Flow Cytometer" [ref=e150]
+            - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e151]
+            - paragraph [ref=e152]: Research Flow Cytometers
+            - paragraph [ref=e155]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+            - link "View Product" [ref=e156] [cursor=pointer]:
+              - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+          - generic [ref=e158]:
+            - heading "We See a Way to" [level=2] [ref=e160]
+            - paragraph [ref=e161]: Reduce manual lab work in clone screening by 90% with the Power of One.
+            - paragraph [ref=e164]: Beckman Coulter Life Sciences | Cydem VT Automated Clone Screening System
+            - link "View Product" [ref=e165] [cursor=pointer]:
+              - /url: /us/en/we-see-a-way/cydem-vt-reduce-90.html
+          - generic [ref=e168]:
+            - img "Optima™ MAX-XP Ultracentrifuge" [ref=e169]
+            - heading "Optima™ MAX-XP Ultracentrifuge" [level=2] [ref=e170]
+            - paragraph [ref=e171]: Ultracentrifuges
+            - list [ref=e174]:
+              - listitem [ref=e175]: 194.4 mL max rotor capacity
+              - listitem [ref=e176]: 150,000 max RPM
+              - listitem [ref=e177]:
+                - text: 1,019,000 x
+                - emphasis [ref=e178]: g
+              - listitem [ref=e179]: Security and tracking
+              - listitem [ref=e180]: Remote monitoring and control
+              - listitem [ref=e181]: On-screen rotor library
+            - link "View Product" [ref=e182] [cursor=pointer]:
+              - /url: /us/en/products/family/optima-max-xp-ultracentrifuges.html
+          - generic [ref=e184]:
+            - img "CytoFLEX Flow Cytometer" [ref=e185]
+            - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e186]
+            - paragraph [ref=e187]: Research Flow Cytometers
+            - paragraph [ref=e190]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+            - link "View Product" [ref=e191] [cursor=pointer]:
+              - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+        - generic [ref=e192]:
+          - button [ref=e193] [cursor=pointer]:
+            - img [ref=e195]
+          - generic [ref=e197]: 1/3
+          - button [ref=e198] [cursor=pointer]:
+            - img [ref=e200]
+    - generic [ref=e205]:
+      - heading "Product Categories" [level=2] [ref=e207]
+      - link "Assay Kits Assay Kits Browse Products" [ref=e209] [cursor=pointer]:
+        - /url: /us/en/products/assay-kits.html
+        - img "Assay Kits" [ref=e210]
+        - paragraph [ref=e211]: Assay Kits
+        - link "Browse Products" [ref=e212]:
+          - /url: /us/en/products/assay-kits.html
+          - text: Browse Products
+          - img [ref=e214]
+    - generic [ref=e223]:
+      - img "Banner image" [ref=e224]
+      - generic [ref=e225]:
+        - paragraph [ref=e226]: We See a Way to reduce manual lab work in clone screening by 90% with the Power of One.
+        - link "Discover how" [ref=e227] [cursor=pointer]:
+          - /url: /us/en/we-see-a-way/cydem-vt-reduce-90.html
+          - text: Discover how
+          - img [ref=e229]
+    - generic [ref=e234]:
+      - img "Flow Cytometers" [ref=e237]
+      - generic [ref=e239]:
+        - paragraph [ref=e240]: Flow Cytometers
+        - heading "CytoFLEX Flow Cytometer" [level=2] [ref=e241]
+        - paragraph [ref=e244]: The CytoFLEX Flow Cytometer, the first introduction to the CytoFLEX Platform, provides the performance you need in an easy to use system allowing you to focus on the science, not the instrumentation.
+        - link "Learn More" [ref=e245] [cursor=pointer]:
+          - /url: /us/en/products/family/cytoflex-flow-cytometer.html
+    - generic [ref=e253]:
+      - generic [ref=e254]:
+        - heading "Accelerating answers to your important questions" [level=2] [ref=e255]
+        - paragraph [ref=e258]: Beckman Coulter Life Sciences is a leading developer of scientific research technologies that primarily serve the academia and pharmaceutical markets. The company also develops and manufacture solutions for clinical research and for applied markets such as agricultural, food and beverage, gas and oil, aerospace, and several others.
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - img "Workflow solutions" [ref=e261]
+          - generic [ref=e262]:
+            - heading "Workflow solutions" [level=3] [ref=e263]
+            - generic [ref=e264]: Discover workflow solutions utilizing the latest technology
+            - link "View Solutions" [ref=e265] [cursor=pointer]:
+              - /url: /us/en/solutions.html
+              - text: View Solutions
+              - img [ref=e267]
+        - generic [ref=e269]:
+          - img "Talk to an expert" [ref=e270]
+          - generic [ref=e271]:
+            - heading "Talk to an expert" [level=3] [ref=e272]
+            - generic [ref=e273]: Speak to one of our world-leading life sciences experts
+            - link "Connect With Us" [ref=e274] [cursor=pointer]:
+              - /url: /us/en/expert.html
+              - text: Connect With Us
+              - img [ref=e276]
+        - generic [ref=e278]:
+          - img "Signup for our newsletter" [ref=e279]
+          - generic [ref=e280]:
+            - heading "Signup for our newsletter" [level=3] [ref=e281]
+            - generic [ref=e282]: Stay connected with us and receive exciting news and announcements
+            - link "Subscribe Now" [ref=e283] [cursor=pointer]:
+              - /url: /us/en/connect/newsletter.html
+              - text: Subscribe Now
+              - img [ref=e285]
+    - generic [ref=e290]:
+      - img "Tip-Based Liquid Handlers" [ref=e293]
+      - generic [ref=e295]:
+        - paragraph [ref=e296]: Tip-Based Liquid Handlers
+        - heading "Biomek NGeniuS Next Generation Library Prep System" [level=2] [ref=e297]
+        - paragraph [ref=e300]: Automation for NGS library preparation
+        - link "Learn More" [ref=e301] [cursor=pointer]:
+          - /url: /us/en/products/family/biomek-ngenius-next-generation-library-prep-systems.html
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - heading "Beckman Coulter Life Sciences in the news" [level=2] [ref=e309]
+        - link "See all" [ref=e310] [cursor=pointer]:
+          - /url: /us/en/news
+          - text: See all
+          - img [ref=e312]
+      - list [ref=e314]:
+        - listitem [ref=e315]:
+          - link "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation Beckman Coulter Life Sciences June 05, 20242 min read Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation Read Article →" [ref=e316] [cursor=pointer]:
+            - /url: /us/en/news/assay-for-rapid-antibody-aggregation-detection.html
+            - img "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation" [ref=e317]
+            - generic [ref=e318]:
+              - paragraph [ref=e319]: Beckman Coulter Life Sciences
+              - paragraph [ref=e320]:
+                - time [ref=e321]: June 05, 2024
+                - text: 2 min read
+              - heading "Beckman Coulter Life Sciences Releases Innovative Assay to Quantify Antibody Aggregation" [level=3] [ref=e322]
+              - generic [ref=e323]:
+                - text: Read Article →
+                - img [ref=e325]
+        - listitem [ref=e327]:
+          - link "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations Beckman Coulter Life Sciences May 03, 20243 min read Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations Read Article →" [ref=e328] [cursor=pointer]:
+            - /url: /us/en/news/hands-free-sample-preparation-flow-cytometry.html
+            - img "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations" [ref=e329]
+            - generic [ref=e330]:
+              - paragraph [ref=e331]: Beckman Coulter Life Sciences
+              - paragraph [ref=e332]:
+                - time [ref=e333]: May 03, 2024
+                - text: 3 min read
+              - heading "Curiox Biosystems and Beckman Coulter Life Sciences Announce Partnership Combining C-FREE™ Technology with DURA Innovations" [level=3] [ref=e334]
+              - generic [ref=e335]:
+                - text: Read Article →
+                - img [ref=e337]
+        - listitem [ref=e339]:
+          - link "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer Beckman Coulter Life Sciences April 16, 20242 min read Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer Read Article →" [ref=e340] [cursor=pointer]:
+            - /url: /us/en/news/beckman-launches-qbd12002b-total-organic-carbon-analyzer.html
+            - img "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer" [ref=e341]
+            - generic [ref=e342]:
+              - paragraph [ref=e343]: Beckman Coulter Life Sciences
+              - paragraph [ref=e344]:
+                - time [ref=e345]: April 16, 2024
+                - text: 2 min read
+              - heading "Beckman Coulter Life Sciences Launches QbD1200+ Total Organic Carbon Analyzer" [level=3] [ref=e346]
+              - generic [ref=e347]:
+                - text: Read Article →
+                - img [ref=e349]
+    - generic [ref=e358]:
+      - generic [ref=e359]: Learn More
+      - generic [ref=e362]:
+        - paragraph [ref=e363]: Beckman Coulter Life Sciences
+        - paragraph [ref=e364]: 5350 Lakeview Parkway S Drive
+        - paragraph [ref=e365]: Indianapolis, IN 46268
+        - paragraph [ref=e366]: United States
+        - paragraph [ref=e367]:
+          - link "View in maps" [ref=e368] [cursor=pointer]:
+            - /url: https://www.google.com/maps/place/Beckman+Coulter+Life+Sciences/@39.8845247,%20-86.2573203,%2017z/data=!3m1!4b1!4m6!3m5!1s0x886b557e67f5439b:0xadaea30dac5c887f!8m2!3d39.8845247!4d-86.2547454!16s%2Fg%2F11b7hj_nb7?authuser=0&entry=ttu&utm_source=dhls_website
+            - text: View in maps
+            - img [ref=e370]
+      - generic [ref=e372]:
+        - generic [ref=e375]:
+          - paragraph [ref=e376]: Call
+          - paragraph [ref=e377]:
+            - link "1 800 742 2345" [ref=e378] [cursor=pointer]:
+              - /url: tel:1%20800%20742%202345
+              - text: 1 800 742 2345
+              - img [ref=e380]
+        - generic [ref=e384]:
+          - paragraph [ref=e385]: Browse
+          - paragraph [ref=e386]:
+            - link "Visit Beckman Coulter Life Sciences" [ref=e387] [cursor=pointer]:
+              - /url: https://www.beckman.com/?utm_source=dhls_website&ajs_aid=d7cb7a36-ee62-4ebf-9406-8489302a9afe
+              - text: Visit Beckman Coulter Life Sciences
+              - img [ref=e389]
+    - generic [ref=e392]:
+      - generic [ref=e393]:
+        - img [ref=e395]
+        - heading "Item(s) Added to your Cart" [level=3] [ref=e397]
+        - img [ref=e399] [cursor=pointer]
+      - generic [ref=e402]:
+        - button "Continue Shopping" [ref=e403] [cursor=pointer]
+        - link "Checkout" [ref=e404] [cursor=pointer]:
+          - /url: /us/en/e-buy/addresses.html
   - contentinfo
+  - dialog "Privacy" [ref=e407]:
+    - generic [ref=e408]:
+      - generic [ref=e409]:
+        - generic:
+          - generic [ref=e410]:
+            - text: We and our partners use cookies and other tracking technologies and some of the data you directly provide to us such as your contact details to improve your experience of using our website, provide you with personalized ads and content based on your interactions with these and other websites, allow you to share content on social media, to perform analytics and measure the effectiveness of our advertising campaigns. By clicking “Accept All Cookies”, you consent to this and to the sharing of this data with our partners (find the link below). You can change your consent preferences at any time in the “Cookie Settings” section at the bottom of our website. Review our Cookie Notice to learn more about our practices
+            - link "More information about your privacy, opens in a new tab" [ref=e411] [cursor=pointer]:
+              - /url: https://lifesciences.danaher.com/us/en/legal/cookies.html
+              - text: Cookie Notice
+          - button "Lifesciences Danaher Cookie Partners Details" [ref=e412] [cursor=pointer]
+      - generic [ref=e414]:
+        - button "Cookies Settings, Opens the preference center dialog" [ref=e415] [cursor=pointer]: Cookies Settings
+        - button "Accept All Cookies" [ref=e417] [cursor=pointer]
 ```
