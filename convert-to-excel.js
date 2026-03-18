@@ -3,10 +3,11 @@ const path = require('path');
 const XLSX = require('xlsx');
 
 try {
-  let jsonFile = path.join(process.cwd(), 'test-results.json');
+
+  const jsonFile = path.join(process.cwd(), 'test-results.json');
   const previewsRoot = path.join(process.cwd(), 'previews');
 
-  // 🔹 🔥 UPDATE THESE 3 VALUES
+  // 🔹 UPDATE THESE VALUES
   const repoOwner = "RLE1602";
   const repoName = "playwright-tests";
   const commitHash = process.env.GITHUB_SHA;
@@ -21,22 +22,59 @@ try {
 
   const rows = [];
 
-  // 🔥 Find latest retry screenshot
+  // 🔹 Clean Playwright error message
+  function cleanErrorMessage(message) {
+    if (!message) return '-';
+
+    const noAnsi = message.replace(/\x1B\[[0-9;]*m/g, '');
+    const lines = noAnsi.split('\n').map(l => l.trim()).filter(Boolean);
+
+    if (!lines.length) return '-';
+
+    let description = lines[0];
+
+    lines.forEach(line => {
+      if (
+        /Expected pattern:/i.test(line) ||
+        /Received string:/i.test(line) ||
+        /Locator:/i.test(line) ||
+        /Error:/i.test(line)
+      ) {
+        description += ' | ' + line;
+      }
+    });
+
+    if (description.length > 400)
+      description = description.slice(0, 400) + "...";
+
+    return description;
+  }
+
+  // 🔹 Find latest retry screenshot
   function findLatestFailedScreenshot() {
+
     if (!fs.existsSync(previewsRoot)) return [];
 
     let screenshots = [];
 
     const walk = (dir) => {
+
       const files = fs.readdirSync(dir);
 
-      files.forEach((file) => {
+      files.forEach(file => {
+
         const fullPath = path.join(dir, file);
         const stat = fs.statSync(fullPath);
 
         if (stat.isDirectory()) {
           walk(fullPath);
-        } else if (/^test-failed-\d+\.png$/.test(file) || /^test-finished-\d+\.png$/.test(file)) {
+        }
+
+        else if (
+          /^test-failed-\d+\.png$/.test(file) ||
+          /^test-finished-\d+\.png$/.test(file)
+        ) {
+
           const retryNumber = parseInt(file.match(/\d+/)[0], 10);
 
           screenshots.push({
@@ -50,104 +88,112 @@ try {
 
     walk(previewsRoot);
 
-    if (screenshots.length === 0) return [];
+    if (!screenshots.length) return [];
 
     screenshots.sort((a, b) => b.time - a.time);
 
     return [screenshots[0].fullPath];
   }
 
-  data.suites?.forEach((suite) => {
-    suite.specs?.forEach((spec) => {
-      spec.tests?.forEach((test) => {
+  // 🔹 Parse Playwright JSON
+  data.suites?.forEach(suite => {
+
+    suite.specs?.forEach(spec => {
+
+      spec.tests?.forEach(test => {
 
         const result = test.results?.[test.results.length - 1] || {};
         const failureLocation = result.error?.location;
 
-        const testTitle = spec?.title ?? test?.title ?? 'Unknown_Test';
-        const specTitle = spec.title || testTitle;
+        const specTitle = spec.title || test.title || "Unknown Test";
 
         const durationMin = result.duration
           ? (result.duration / 60000).toFixed(2)
-          : '0.00';
+          : "0.00";
 
         const previews = result.status === 'failed'
           ? findLatestFailedScreenshot()
           : [];
 
-        const mediaFullPath = previews.length ? previews[0] : '-';
+        const mediaFullPath = previews.length ? previews[0] : "-";
 
-        // 🔥 Determine Severity
-        let severity = '-';
-        if (result.status === 'failed' && result.error?.message) {
+        // 🔹 Determine Severity
+        let severity = "-";
+
+        if (result.status === "failed" && result.error?.message) {
+
           const msg = result.error.message.toLowerCase();
 
-          if (/404|not\s+found|page\s+could\s+not\s+be\s+found/i.test(msg)) {
-            severity = 'High';
-          }
-          else if (/click|navigation|goto|load|redirect|timeout/i.test(msg)) {
-            severity = 'Critical';
-          }
-          else if (/expect|match|assert|mismatch|validation/i.test(msg)) {
-            severity = 'Medium';
-          }
+          if (/404|not\s+found|page\s+could\s+not\s+be\s+found/.test(msg))
+            severity = "High";
+
+          else if (/click|navigation|goto|load|redirect|timeout/.test(msg))
+            severity = "Critical";
+
+          else if (/expect|match|assert|mismatch|validation/.test(msg))
+            severity = "Medium";
         }
 
         rows.push({
-          //Suite: suite.title || 'Root Suite',
           Suite: "Regression_LSIG",
           Release: "43",
           Category: "LSIG-eCom",
-          'Scenario Name': specTitle,
-          //'Test Case ID': testTitle.replace(/\s+/g, '_'),
-          //'Test Case Name': specTitle,
-          'Step Number': failureLocation?.line ?? '-',
-          Status: result.status || 'unknown',
-          'Failed Step Description': result.error?.message || '-',
-          'Duration (min)': durationMin,
+          "Scenario Name": specTitle,
+          "Step Number": failureLocation?.line ?? "-",
+          Status: result.status || "unknown",
+          "Failed Step Description": cleanErrorMessage(result.error?.message),
+          "Duration (min)": durationMin,
           Retry: result.retry || 0,
-          Browser: test.projectName || 'unknown',
-          'Media Link': mediaFullPath,
+          Browser:
+            test.projectName === "chromium"
+              ? "Chromium"
+              : test.projectName === "firefox"
+              ? "Firefox"
+              : test.projectName === "msedge"
+              ? "Microsoft Edge"
+              : test.projectName || "unknown",
+          "Media Link": mediaFullPath,
           Severity: severity,
-          'Execution Date': result.startTime
-            ? new Date(result.startTime).toISOString().split('T')[0]
-            : '-',
+          "Execution Date": result.startTime
+            ? new Date(result.startTime).toISOString().split("T")[0]
+            : "-"
         });
 
       });
+
     });
+
   });
 
+  // 🔹 Create Excel
   const workbook = XLSX.utils.book_new();
+
   const worksheet = XLSX.utils.json_to_sheet(rows, {
     header: [
-      'Suite',
-      'Release',
-      'Category',
-      'Scenario Name',
-      //'Test Case ID',
-      //'Test Case Name',
-
-      'Step Number',
-      'Status',
-      'Failed Step Description',
-      'Duration (min)',
-      'Retry',
-      'Browser',
-      'Media Link',
-      'Severity',
-      'Execution Date'
+      "Suite",
+      "Release",
+      "Category",
+      "Scenario Name",
+      "Step Number",
+      "Status",
+      "Failed Step Description",
+      "Duration (min)",
+      "Retry",
+      "Browser",
+      "Media Link",
+      "Severity",
+      "Execution Date"
     ]
   });
 
-  // 🔥 Convert to GitHub RAW clickable links
+  // 🔹 Convert screenshot path → GitHub clickable link
   rows.forEach((row, index) => {
-    if (row['Status'] === 'failed' && row['Media Link'] !== '-') {
 
-      const cellAddress = `J${index + 2}`;
+    if (row["Status"] === "failed" && row["Media Link"] !== "-") {
 
-      // Convert local path to repo-relative path
-      const relativeRepoPath = row['Media Link']
+      const cellAddress = `K${index + 2}`;
+
+      const relativeRepoPath = row["Media Link"]
         .replace(/\\/g, "/")
         .replace(/^.*previews\//, "previews/");
 
@@ -155,21 +201,52 @@ try {
         `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${commitHash}/${relativeRepoPath}`;
 
       worksheet[cellAddress] = {
-        t: 's',
-        v: 'View Screenshot',
+        t: "s",
+        v: "View Screenshot",
         l: { Target: githubRawUrl }
       };
+
     }
+
   });
 
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Test Report');
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Test Report");
 
-  const excelFile = path.join(process.cwd(), 'Playwright_Test_Report.xlsx');
+  // Create Separate Failed Test Case Table
+const failedRows = rows
+  .filter(row => row.Status === "failed")
+  .map(row => ({
+    Suite: row.Suite,
+    Release: row.Release,
+    Category: row.Category,
+    "Scenario Name": row["Scenario Name"],
+    "Step Number": row["Step Number"],
+    Severity: row.Severity
+  }));
+
+const failedWorksheet = XLSX.utils.json_to_sheet(failedRows, {
+  header: [
+    "Suite",
+    "Release",
+    "Category",
+    "Scenario Name",
+    "Step Number",
+    "Severity"
+  ]
+});
+
+XLSX.utils.book_append_sheet(workbook, failedWorksheet, "Failed Test Cases");
+
+  const excelFile = path.join(process.cwd(), "Playwright_Test_Report.xlsx");
+
   XLSX.writeFile(workbook, excelFile);
 
   console.log(`✅ Excel report generated: ${excelFile}`);
 
-} catch (err) {
-  console.error('❌ Excel generation failed:', err);
-  console.log('⚠ Continuing workflow despite Excel failure');
+}
+catch (err) {
+
+  console.error("❌ Excel generation failed:", err);
+  console.log("⚠ Continuing workflow despite Excel failure");
+
 }
