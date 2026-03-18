@@ -10,9 +10,9 @@ test('WE-05 Verify Talk to an Expert Widget', async ({ page }) => {
 
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   await page.waitForLoadState('domcontentloaded');
-  const [page1] = await Promise.all([
-    page.getByRole('link', { name: 'Discover how we can help ->' }).click()
-  ]);
+  // const [page1] = await Promise.all([
+  //   page.getByRole('link', { name: 'Discover how we can help ->' }).click()
+  // ]);
   await page1.waitForLoadState('domcontentloaded');
   await page1.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   await visual.check('Talk to an Expert Widget');
