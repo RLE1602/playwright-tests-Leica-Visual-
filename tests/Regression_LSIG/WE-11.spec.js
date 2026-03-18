@@ -9,7 +9,8 @@ test('WE-11 Verify Resources Menu Links for Blog', async ({ page }) => {
 
   await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'domcontentloaded' , timeout: 90000 });
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  await page.waitForLoadState('domcontentloaded', { timeout: 120000 });
+  await page.waitForLoadState('load', { timeout: 120000 });
+  
   await page.getByRole('link', { name: /resources/i }).click();
   await page.getByRole('link', { name: /blog/i }).click();
   await page.waitForLoadState('domcontentloaded');
