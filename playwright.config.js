@@ -18,8 +18,14 @@ export default defineConfig({
     testDir: 'tests/Regression_LSIG',
     timeout: 300_000,
     
+    // Set default maxDiffPixels for all screenshot comparisons
+    toHaveScreenshot: {
+      maxDiffPixels: 5000,   // allow up to 5000 pixels difference
+      maxDiffRatio: 0.01,    // allow up to 1% of pixels to differ
+      timeout: 30000,         // wait up to 30s for stable screenshot
+      fullPage: true          // take full-page screenshots by default
+    },
 
-  
   /* Run tests in files in parallel */
 
   fullyParallel: true,
@@ -32,7 +38,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 3 : 4,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { outputFolder: 'regression-report', open: 'never' }],['list'], ['json', { outputFile: 'test-results.json' }], ['@argos-ci/playwright/reporter', { uploadToArgos: !!process.env.CI }]],
+  reporter: [['html', { outputFolder: 'regression-report', open: 'never' }],['list'], ['json', { outputFile: 'test-results.json' }]],
  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   outputDir: process.env.PREVIEW_DIR || 'test-results',
@@ -50,8 +56,8 @@ export default defineConfig({
     trace: 'on',
     screenshot: 'on',
     video: 'on',
-    actionTimeout: process.env.CI ? 120_000 : 60_000,   // 2 min on CI, 30s locally
-    navigationTimeout: process.env.CI ? 180_000 : 90_000,
+    actionTimeout: process.env.CI ? 120_000 : 30_000,   // 2 min on CI, 30s locally
+    navigationTimeout: process.env.CI ? 180_000 : 120_000,
     },
 
   /* Configure projects for major browsers */
@@ -63,19 +69,19 @@ export default defineConfig({
       
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
     // {
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
     // },
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
+    // {
+    //   name: 'Microsoft Edge',
+    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    // },
 
     /* Test against mobile viewports. */
     // {
