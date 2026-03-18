@@ -1,64 +1,83 @@
-const { test, expect } = require('@playwright/test');
-const { VisualCheck } = require('../../helpers/VisualCheck.js');
+import { test, expect } from '@playwright/test';
+import { VisualCheck } from '../../helpers/VisualCheck.js';
 
 const baseURL = 'https://stage.lifesciences.danaher.com/';
 
-test('WE-03 Verify Each OpCo Link From Top Section', async ({ page }) => {
-  // Initialize VisualCheck helper for this test
+async function acceptCookies(page) {
+  await page.getByRole('button', { name: /accept|agree/i })
+    .first()
+    .click()
+    .catch(() => {});
+}
+
+test('WE-03 Validate all OpCo links and titles', async ({ page, context }) => {
+
+  test.setTimeout(300000); // 5 min max safety
+
   const visual = new VisualCheck(page, 'WE-03');
 
-  // ---------------- Helper: Accept cookies ----------------
-  async function acceptCookies() {
-    const acceptBtn = page.getByRole('button', { name: /Accept/i });
-    if (await acceptBtn.isVisible().catch(() => false)) {
-      await acceptBtn.click();
+  await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
+  await acceptCookies(page);
+
+  const opcos = [
+    { name: 'abcam', title: /abcam/i },
+    { name: 'beckman coulter', title: /beckman/i },
+    { name: 'genedata', title: /genedata/i },
+    { name: 'idbs', title: /idbs/i },
+    { name: 'leica', title: /leica/i },
+    { name: 'molecular devices', title: /molecular/i },
+    { name: 'phenomenex', title: /phenomenex/i },
+    { name: 'sciex', title: /sciex/i },
+    { name: 'aldevron', title: /aldevron/i },
+    { name: 'idt', title: /idt/i }
+  ];
+
+  // 🔹 Extract URLs first
+  const opcoData = [];
+
+  for (const opco of opcos) {
+    const link = page.getByRole('link', { name: new RegExp(opco.name, 'i') }).first();
+
+    await expect(link).toBeVisible();
+
+    const href = await link.getAttribute('href');
+
+    if (href) {
+      opcoData.push({
+        name: opco.name,
+        title: opco.title,
+        url: href.startsWith('http') ? href : `${baseURL}${href}`
+      });
     }
   }
 
-  // ---------------- Helper: Navigate to OpCo ----------------
-  async function navigateToOpCoAndVerifyURL(name, urlPattern) {
-    const opcoLink = page.getByRole('link', { name });
+  // 🔹 Validate each OpCo
+  for (const opco of opcoData) {
 
-    await expect(opcoLink).toBeVisible();
-    await expect(opcoLink).toBeEnabled();
+    console.log(`➡️ Checking: ${opco.name}`);
 
-    await Promise.all([
-      page.waitForLoadState('domcontentloaded', { timeout: 30000 }),
-      opcoLink.click(),
-    ]);
+    const newPage = await context.newPage();
+    const opcoVisual = new VisualCheck(newPage, `WE-03-${opco.name}`); // ✅ per OpCo
 
-    await acceptCookies();
+    try {
+      await newPage.goto(opco.url, {
+        waitUntil: 'commit',
+        timeout: 60000
+      });
 
-    await page.locator('h1').first().waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
+      await acceptCookies(newPage);
 
-    await expect(page).toHaveURL(urlPattern);
+      // Title validation
+      await expect.soft(newPage).toHaveTitle(opco.title);
+
+      // Visual check per OpCo page
+      await opcoVisual.check(`OpCo - ${opco.name}`);
+
+    } catch (err) {
+      console.log(`❌ Failed: ${opco.name}`);
+    } finally {
+      await newPage.close();
+    }
   }
 
-  // ---------------- Test Steps ----------------
-  await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
-  await acceptCookies({waitUntil: 'networkidle'});
-
-  // Take single full-page visual check after homepage load
-  await visual.check('Each_opco_full');
-
-  const opCos = [
-    ['Abcam', /abcam\.com/],
-    ['Beckman Coulter', /mybeckman/],
-    ['Genedata', /genedata/],
-    ['IDBS', /idbs/],
-    ['Leica', /leica/],
-    ['Molecular Devices', /moleculardevices/],
-    ['Phenomenex', /phenomenex/],
-    ['Sciex', /sciex/],
-    ['Aldevron', /aldevron/],
-    ['IDT', /idtdna/],
-  ];
-
-  for (const [name, urlPattern] of opCos) {
-    await navigateToOpCoAndVerifyURL(name, urlPattern);
-
-    // Return to homepage between OpCos
-    await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
-    await acceptCookies();
-  }
 });

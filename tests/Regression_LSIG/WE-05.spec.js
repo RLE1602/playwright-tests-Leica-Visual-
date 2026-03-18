@@ -1,45 +1,36 @@
 import { test, expect } from '@playwright/test';
 import { VisualCheck } from '../../helpers/VisualCheck.js';
 
-
 test('WE-05 Verify Talk to an Expert Widget', async ({ page }) => {
 
   const visual = new VisualCheck(page, 'WE-05');
 
   // 1. Navigate
-  await page.goto('https://stage.lifesciences.danaher.com/');
+  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'domcontentloaded', timeout: 90000 });
 
-  // 2. Accept cookies (if visible)
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-
-  // 3. Click "Talk to an Expert"
-  await page.getByRole('button', { name: /talk to an expert/i }).click();
-
-  // 4. Accept cookies again (if popup appears)
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-
-  // 5. Verify text
-  await expect(page.getByText('Speak to one of our world-leading life sciences experts'))
-    .toBeVisible();
+  await page.waitForLoadState('domcontentloaded');
+  const [page1] = await Promise.all([
+    page.getByRole('link', { name: 'Discover how we can help ->' }).click()
+  ]);
+  await page1.waitForLoadState('domcontentloaded');
+  await page1.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   await visual.check('Talk to an Expert Widget');
-
-  // 6. Fill form fields
-  await page.getByLabel(/first name/i).fill('mitali');
-  await page.getByLabel(/last name/i).fill('himane');
-  await page.getByLabel(/email/i).fill('mithali.himane@dhlscontractors.com');
-  await page.getByLabel(/phone/i).fill('238-732-8788');
-  await page.getByLabel(/company/i).fill('Test_company');
-  await page.getByLabel(/zip|postal/i).fill('60612');
-
-  // 7. Select Job Level
-  await page.getByRole('combobox').nth(0).click();
-  await page.getByRole('option', { name: /vice president/i }).click();
-
-  // 8. Select Country
-  await page.getByRole('combobox').nth(1).click();
-  await page.getByRole('option', { name: /united states/i }).click();
-
-  // 9. Enter comments
-  await page.getByLabel(/comments|opco_comments/i).fill('Regression testing');
+  await expect(
+    page1.getByText('Speak to one of our world-leading life sciences experts')
+  ).toBeVisible();
+  await page1.getByRole('textbox', { name: 'First_Name' }).fill('Mitali');
+  await page1.getByRole('textbox', { name: 'Last_Name' }).fill('Himane');
+  await page1.getByRole('textbox', { name: 'Email_Address' }).fill('mitali@yopmail.com');
+  await page1.getByRole('textbox', { name: 'Company_Name' }).fill('DHLS');
+  await page1.getByRole('textbox', { name: 'Postal_Code' }).fill('10001');
+  await page1.locator('label').filter({ hasText: 'Select' }).first().click();
+  await page1.getByText('Vice President', { exact: true }).click();
+  await page1.locator('label').filter({ hasText: 'Select' }).click();
+  await page1.getByText('United States').click();
+  await page1.getByRole('textbox', { name: 'OpCo_Comments' }).fill('Not submitting the form');
+  await page1.getByRole('checkbox', { name: 'Email_Opt_In' }).check();
+  await page1.getByRole('checkbox', { name: 'SMS_Opt_In' }).check();
+  await page1.getByRole('checkbox', { name: 'Phone_Opt_In' }).check();
 
 });

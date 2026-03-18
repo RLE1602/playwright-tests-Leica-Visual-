@@ -3,120 +3,82 @@ import { VisualCheck } from '../../helpers/VisualCheck.js';
 import { checkBrokenLinks } from '../../helpers/BrokenLinks';
 import { checkBrokenImages } from '../../helpers/BrokenImages';
 
-// // ✅ helper (reuse everywhere)
-// async function handleCookies(page) {
-//   const btn = page.getByRole('button', { name: 'Accept All Cookies' });
-//   if (await btn.count() > 0) {
-//     await btn.first().click();
-//     await page.waitForSelector('#onetrust-consent-sdk', {
-//       state: 'detached',
-//       timeout: 10000
-//     }).catch(() => {});
-//   }
-// }
-
-test('WE-01 Verify that the "Frequently Viewed" or "Purchased Together" section is displayed correctly and functions as expected in Product Family', async ({ page }) => {
+test('WE-01 Verify Related Products section works correctly', async ({ page }) => {
   const visual = new VisualCheck(page, 'WE-01');
 
-  await page.goto('https://stage.lifesciences.danaher.com/us/en/products/family/atto-390.html', {waitUntil: 'domcontentloaded', timeout: 90000});
+  const baseURL = 'https://stage.lifesciences.danaher.com/us/en/products/family/atto-390.html';
 
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+  // 🔹 Reusable safe click helper
+  const safeClick = async (locator) => {
+    await locator.waitFor({ state: 'visible', timeout: 15000 });
+    await locator.scrollIntoViewIfNeeded();
+    await locator.click();
+  };
+
+  // 🔹 Open page
+  const openBasePage = async () => {
+    await page.goto(baseURL, { waitUntil: 'domcontentloaded', timeout: 90000 });
+    await page.waitForLoadState('domcontentloaded');
+    await page.waitForTimeout(1000);
+    await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+  };
+
+  // 🔹 Navigate to Related Products tab
+  const openRelatedProducts = async () => {
+    const tab = page.getByRole('tab', { name: 'Related Products' });
+    await safeClick(tab);
+    await expect(page.locator('body')).toContainText('Related Products');
+  };
+
+  // 🔹 Start test
+  await openBasePage();
 
   await visual.check('Frequently Viewed or Purchased Together section');
 
   await expect(page.locator('body')).toContainText('Leica Microsystems');
   await expect(page.locator('body')).toContainText('ATTO 390');
-  await expect(page.locator('body')).toContainText('ATTO 390 is a novel fluorescent label with a coumarin structure'
+  await expect(page.locator('body')).toContainText(
+    'ATTO 390 is a novel fluorescent label with a coumarin structure'
   );
 
-  await page.getByText('Related Products').scrollIntoViewIfNeeded();
-  await page.getByText('Related Products').click();
-
-  await expect(page.locator('body')).toContainText('Related Products');
+  await openRelatedProducts();
 
   const products = ['ATTO 425', 'ATTO 594', 'ATTO 620', 'ATTO 610'];
 
-  // ✅ PRODUCT 1
+  // 🔁 Loop through products (clean + stable)
+  for (let i = 0; i < 4; i++) {
+    console.log(`Testing product ${i + 1}`);
 
-  await page.waitForLoadState('load');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  let link = page.getByRole('link', { name: 'View Details' }).nth(0);
-  await link.scrollIntoViewIfNeeded();
-  await link.click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page.locator('body')).toContainText(products[0]);
-  await checkBrokenLinks(page);
-  await checkBrokenImages(page);
-  await page.goBack();
-  await page.waitForLoadState('domcontentloaded');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+    const link = page.getByRole('link', { name: 'View Details' }).nth(i);
 
-  // ✅ PRODUCT 2
-  
-  await page.waitForLoadState('load');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  await page.getByText('Related Products').scrollIntoViewIfNeeded();
-  await page.evaluate(() => window.scrollBy(0, 1200));
-  await page.waitForLoadState('domcontentloaded', { timeout: 120000 });
-  link = page.getByRole('link', { name: 'View Details' }).nth(1);
-  await link.click();
-  await page.waitForLoadState('domcontentloaded', { timeout: 120000 });
-  await expect(page.locator('body')).toContainText(products[1]);
-  await checkBrokenLinks(page);
-  await checkBrokenImages(page);
-  await page.goBack();
-  await page.waitForLoadState('domcontentloaded', { timeout: 120000 });
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  // ✅ PRODUCT 3
-  
-  await page.waitForLoadState('load');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  await page.getByText('Related Products').scrollIntoViewIfNeeded();
-  await page.waitForLoadState('load');
-  await page.getByRole('link', { name: 'View Details' }).scrollIntoViewIfNeeded
-  await page.waitForLoadState('load');
-  link = page.getByRole('link', { name: 'View Details' }).nth(2);
-  await link.click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page.locator('body')).toContainText(products[2]);
-  await checkBrokenLinks(page);
-  await checkBrokenImages(page);
-  await page.goBack();
-  await page.waitForLoadState('domcontentloaded');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+    await safeClick(link);
 
-  // ✅ PRODUCT 4
-  
-  await page.waitForLoadState('load');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  await page.getByText('Related Products').scrollIntoViewIfNeeded();
-  await page.waitForLoadState('load');
-  await page.getByRole('link', { name: 'View Details' }).scrollIntoViewIfNeeded
-  await page.waitForLoadState('load');
-  link = page.getByRole('link', { name: 'View Details' }).nth(3);
-  await link.click();
-  await page.waitForLoadState('domcontentloaded');
-  await expect(page.locator('body')).toContainText(products[3]);
-  await checkBrokenLinks(page);
-  await checkBrokenImages(page);
-  await page.goBack();
-  await page.waitForLoadState('domcontentloaded');
-  await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+    await page.waitForLoadState('domcontentloaded');
+    await visual.check('Frequently Viewed or Purchased Together section');
 
-  // ✅ VALIDATIONS
+    await expect(page.locator('body')).toContainText(products[i]);
 
-  await page.getByText('Related Products').scrollIntoViewIfNeeded();
+    // ⚠️ These are heavy — keep but now stable
+    await checkBrokenLinks(page);
+    await checkBrokenImages(page);
+
+    // 🔁 Always go fresh instead of goBack (prevents crashes)
+    await openBasePage();
+    await openRelatedProducts();
+  }
+
+  // ✅ Final validations
   await expect(page.locator('body')).toContainText('ATTO 542');
   await expect(page.locator('body')).toContainText('ATTO 590');
 
-  // ✅ FIXED PAGINATION
-
+  // ✅ Pagination
   const nextBtn = page.locator('text=Next').last();
-  await nextBtn.scrollIntoViewIfNeeded();
-  await expect(nextBtn).toBeVisible({ timeout: 90000 });
-  await nextBtn.click();
-  await page.waitForLoadState('domcontentloaded', { timeout: 90000 });
+
+  await safeClick(nextBtn);
+
+  await page.waitForLoadState('domcontentloaded');
+  await visual.check('Frequently Viewed or Purchased Together section');
+
   await expect(page.locator('body')).toContainText('ATTO 565');
   await expect(page.locator('body')).toContainText('ATTO 495');
-
 });

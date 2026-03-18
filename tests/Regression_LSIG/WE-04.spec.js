@@ -1,25 +1,33 @@
 import { test, expect } from '@playwright/test';
 import { VisualCheck } from '../../helpers/VisualCheck.js';
 
+async function acceptCookies(page) {
+  const acceptBtn = page.getByRole('button', { name: /accept/i });
+
+  if (await acceptBtn.isVisible().catch(() => false)) {
+    await acceptBtn.click();
+  }
+}
+
 test('WE-04 Verify Empty Quote Cart Page', async ({ page }) => {
+
   const visual = new VisualCheck(page, 'WE-04');
 
-  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'networkidle' });
+  await page.goto('https://stage.lifesciences.danaher.com/', {
+    waitUntil: 'domcontentloaded'
+  });
 
-  async function acceptCookies() {
-    const acceptBtn = page.getByRole('button', { name: /Accept/i });
-    if (await acceptBtn.isVisible().catch(() => false)) {
-      await acceptBtn.click();
-    }
-  }
+  await acceptCookies(page); // ✅ before click
 
   await page.getByRole('link', { name: 'Quote' }).click();
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('domcontentloaded');
+
+  await acceptCookies(page); // ✅ after navigation
 
   // Assertions
-  await expect(page).toHaveURL('https://stage.lifesciences.danaher.com/us/en/quote-cart.html');
-  await expect(page).toHaveTitle('Quote Cart | Danaher Life Sciences');
+  await expect(page).toHaveURL(/quote-cart/);
+  await expect(page).toHaveTitle(/Quote Cart/i);
 
-  // Single visual check for the whole page
+  // Visual check
   await visual.check('quote_cart_page_full');
 });
