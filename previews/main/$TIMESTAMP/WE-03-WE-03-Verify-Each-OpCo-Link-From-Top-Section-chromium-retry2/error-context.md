@@ -61,281 +61,275 @@
                 - img [ref=e62]
                 - generic [ref=e64]: Quote
                 - generic [ref=e65]: "0"
-              - link "Cart 0" [ref=e66] [cursor=pointer]:
-                - /url: /us/en/e-buy/cart.html
-                - img [ref=e68]
-                - generic [ref=e70]:
-                  - generic [ref=e71]: Cart
-                  - generic [ref=e72]: "0"
-            - generic [ref=e75]:
-              - textbox "Search field with suggestions. Suggestions may be available under this field. To send, press Enter." [ref=e77]:
+            - generic [ref=e68]:
+              - textbox "Search field with suggestions. Suggestions may be available under this field. To send, press Enter." [ref=e70]:
                 - /placeholder: Search
-              - button "Search" [ref=e79] [cursor=pointer]:
-                - img [ref=e81]
-          - navigation "Header Menu" [ref=e83]:
-            - link "Life Sciences" [ref=e84] [cursor=pointer]:
+              - button "Search" [ref=e72] [cursor=pointer]:
+                - img [ref=e74]
+          - navigation "Header Menu" [ref=e76]:
+            - link "Life Sciences" [ref=e77] [cursor=pointer]:
               - /url: /
-            - link "Solutions" [ref=e85] [cursor=pointer]:
+            - link "Solutions" [ref=e78] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/solutions.html
               - text: Solutions
-              - img [ref=e87]
-            - link "Driving Results" [ref=e89] [cursor=pointer]:
+              - img [ref=e80]
+            - link "Driving Results" [ref=e82] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/we-see-a-way.html
-            - link "Products" [ref=e90] [cursor=pointer]:
+            - link "Products" [ref=e83] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/products.html
               - text: Products
-              - img [ref=e92]
-            - link "Support" [ref=e94] [cursor=pointer]:
+              - img [ref=e85]
+            - link "Support" [ref=e87] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/expert.html
-            - link "Resources" [ref=e95] [cursor=pointer]:
+            - link "Resources" [ref=e88] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/#
               - text: Resources
-              - img [ref=e97]
-            - link "About Us" [ref=e99] [cursor=pointer]:
+              - img [ref=e90]
+            - link "About Us" [ref=e92] [cursor=pointer]:
               - /url: https://stage.lifesciences.danaher.com/us/en/about-us.html
-  - main [ref=e100]:
-    - generic [ref=e102]:
-      - generic [ref=e103]:
-        - generic [ref=e106]:
-          - paragraph [ref=e107]: Digital & AI-Powered Solutions
-          - heading "Unifying Insight, Speed, and Precision across the Therapeutic Lifecycle" [level=2] [ref=e108]
-          - generic [ref=e109]:
-            - paragraph [ref=e110] [cursor=pointer]:
-              - link "Learn More" [ref=e111]:
+  - main [ref=e93]:
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: Digital & AI-Powered Solutions
+          - heading "Unifying Insight, Speed, and Precision across the Therapeutic Lifecycle" [level=2] [ref=e101]
+          - generic [ref=e102]:
+            - paragraph [ref=e103] [cursor=pointer]:
+              - link "Learn More" [ref=e104]:
                 - /url: /us/en/solutions/digital.html
-            - paragraph [ref=e112] [cursor=pointer]:
-              - link "Digital solutions" [ref=e113]:
+            - paragraph [ref=e105] [cursor=pointer]:
+              - link "Digital solutions" [ref=e106]:
                 - /url: /content/dam/danaher/solutions/digital/digital-solutions-hero.jpg
-        - generic [ref=e116]:
-          - paragraph [ref=e117]: Analytical Solutions
-          - heading "Enabling Faster, Data-Driven Drug Development" [level=2] [ref=e118]
-          - generic [ref=e119]:
-            - paragraph [ref=e120] [cursor=pointer]:
-              - link "Learn More" [ref=e121]:
+        - generic [ref=e109]:
+          - paragraph [ref=e110]: Analytical Solutions
+          - heading "Enabling Faster, Data-Driven Drug Development" [level=2] [ref=e111]
+          - generic [ref=e112]:
+            - paragraph [ref=e113] [cursor=pointer]:
+              - link "Learn More" [ref=e114]:
                 - /url: /us/en/solutions/analytical.html
-            - paragraph [ref=e122] [cursor=pointer]:
-              - link "analytical solutions" [ref=e123]:
+            - paragraph [ref=e115] [cursor=pointer]:
+              - link "analytical solutions" [ref=e116]:
                 - /url: /content/dam/danaher/solutions/analytical/analytical-hero-2.jpg
-        - generic [ref=e124]:
-          - generic [ref=e126]:
-            - heading "Translating Human-Relevant Models to Clinical Success" [level=2] [ref=e127]
+        - generic [ref=e117]:
+          - generic [ref=e119]:
+            - heading "Translating Human-Relevant Models to Clinical Success" [level=2] [ref=e120]
             - paragraph
-            - paragraph [ref=e129] [cursor=pointer]:
-              - link "Learn More" [ref=e130]:
+            - paragraph [ref=e122] [cursor=pointer]:
+              - link "Learn More" [ref=e123]:
                 - /url: /us/en/solutions/small-molecule-drug-discovery/human-relevant-models.html
-          - img "HRM" [ref=e132]
-        - generic [ref=e133]:
-          - generic [ref=e135]:
-            - paragraph [ref=e136]: Together, we see a way to
-            - heading "improve drug candidate success rates by 25%" [level=1] [ref=e137]
+          - img "HRM" [ref=e125]
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Together, we see a way to
+            - heading "improve drug candidate success rates by 25%" [level=1] [ref=e130]
             - paragraph
-            - paragraph [ref=e139] [cursor=pointer]:
-              - link "Browse Solutions" [ref=e140]:
+            - paragraph [ref=e132] [cursor=pointer]:
+              - link "Browse Solutions" [ref=e133]:
                 - /url: /us/en/solutions.html
-          - img "homepage" [ref=e142]
-      - generic [ref=e143]:
-        - button "Previous" [ref=e144] [cursor=pointer]:
-          - generic [ref=e145]:
-            - img [ref=e146]
-            - generic [ref=e148]: Previous
-        - generic [ref=e149]: 1/4
-        - button "Next" [ref=e150] [cursor=pointer]:
-          - generic [ref=e151]:
-            - img [ref=e152]
-            - generic [ref=e154]: Next
-    - generic [ref=e155]:
-      - heading "We see a way to" [level=2] [ref=e157]
-      - generic [ref=e159]:
-        - generic [ref=e160]:
-          - paragraph [ref=e162]:
-            - img [ref=e164]
-          - generic [ref=e165]:
-            - heading "Increase assay sensitivity by 50% using AI-based phenotypic classification." [level=3] [ref=e166]
-            - paragraph [ref=e167]:
-              - link "Explore ->" [ref=e168] [cursor=pointer]:
+          - img "homepage" [ref=e135]
+      - generic [ref=e136]:
+        - button "Previous" [ref=e137] [cursor=pointer]:
+          - generic [ref=e138]:
+            - img [ref=e139]
+            - generic [ref=e141]: Previous
+        - generic [ref=e142]: 1/4
+        - button "Next" [ref=e143] [cursor=pointer]:
+          - generic [ref=e144]:
+            - img [ref=e145]
+            - generic [ref=e147]: Next
+    - generic [ref=e148]:
+      - heading "We see a way to" [level=2] [ref=e150]
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - paragraph [ref=e155]:
+            - img [ref=e157]
+          - generic [ref=e158]:
+            - heading "Increase assay sensitivity by 50% using AI-based phenotypic classification." [level=3] [ref=e159]
+            - paragraph [ref=e160]:
+              - link "Explore ->" [ref=e161] [cursor=pointer]:
                 - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/genedata-screener-ai-organoid-assay-analysis.html
-        - generic [ref=e169]:
-          - paragraph [ref=e171]:
-            - img [ref=e173]
-          - generic [ref=e175]:
-            - heading "Boost in-house organoid production by 25 times" [level=3] [ref=e176]
-            - paragraph [ref=e177]:
-              - link "Explore ->" [ref=e178] [cursor=pointer]:
+        - generic [ref=e162]:
+          - paragraph [ref=e164]:
+            - img [ref=e166]
+          - generic [ref=e168]:
+            - heading "Boost in-house organoid production by 25 times" [level=3] [ref=e169]
+            - paragraph [ref=e170]:
+              - link "Explore ->" [ref=e171] [cursor=pointer]:
                 - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/automated-organoid-culture-cellxpress-ai.html
-        - generic [ref=e179]:
-          - paragraph [ref=e181]:
-            - img [ref=e183]
-          - generic [ref=e185]:
-            - heading "Train users 50% faster to image organoids and 3D cultures" [level=3] [ref=e186]
-            - paragraph [ref=e187]:
-              - strong [ref=e188]:
-                - link "Explore ->" [ref=e189] [cursor=pointer]:
+        - generic [ref=e172]:
+          - paragraph [ref=e174]:
+            - img [ref=e176]
+          - generic [ref=e178]:
+            - heading "Train users 50% faster to image organoids and 3D cultures" [level=3] [ref=e179]
+            - paragraph [ref=e180]:
+              - strong [ref=e181]:
+                - link "Explore ->" [ref=e182] [cursor=pointer]:
                   - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/mica-microhub-3d-cell-imaging.html
-        - generic [ref=e190]:
-          - paragraph [ref=e192]:
-            - img [ref=e194]
-          - generic [ref=e196]:
-            - heading "Reduce time to assay from 17 days to just 2 days" [level=3] [ref=e197]
-            - paragraph [ref=e198]:
-              - link "Explore ->" [ref=e199] [cursor=pointer]:
+        - generic [ref=e183]:
+          - paragraph [ref=e185]:
+            - img [ref=e187]
+          - generic [ref=e189]:
+            - heading "Reduce time to assay from 17 days to just 2 days" [level=3] [ref=e190]
+            - paragraph [ref=e191]:
+              - link "Explore ->" [ref=e192] [cursor=pointer]:
                 - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/3d-ready-organoids-fast-reliable-research.html
-    - generic [ref=e201]:
-      - heading "Our principles" [level=2] [ref=e204]
-      - generic [ref=e205]:
-        - img "We partner deep" [ref=e209]
-        - generic [ref=e210]:
-          - generic [ref=e211]:
-            - generic "We partner deep" [ref=e212] [cursor=pointer]:
-              - heading "We partner deep" [level=3] [ref=e213]
-              - img [ref=e215]
-              - img [ref=e218]
+    - generic [ref=e194]:
+      - heading "Our principles" [level=2] [ref=e197]
+      - generic [ref=e198]:
+        - img "We partner deep" [ref=e202]
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - generic "We partner deep" [ref=e205] [cursor=pointer]:
+              - heading "We partner deep" [level=3] [ref=e206]
+              - img [ref=e208]
+              - img [ref=e211]
             - generic:
               - generic:
                 - text: The right team will help you achieve measurably improved outcomes in utilization, cost, capacity, risk, and time. By offering you one point of contact, we source the right expertise from Danaher Life Sciences’ entire ecosystem of engineering, science, and technology innovators.
-                - link "Talk to an Expert -->" [ref=e219] [cursor=pointer]:
+                - link "Talk to an Expert -->" [ref=e212] [cursor=pointer]:
                   - /url: https://lifesciences.danaher.com/us/en/expert.html
-          - generic [ref=e220]:
-            - generic "Integrated workflows" [ref=e221] [cursor=pointer]:
-              - heading "Integrated workflows" [level=3] [ref=e222]
-              - img [ref=e224]
-              - img [ref=e227]
+          - generic [ref=e213]:
+            - generic "Integrated workflows" [ref=e214] [cursor=pointer]:
+              - heading "Integrated workflows" [level=3] [ref=e215]
+              - img [ref=e217]
+              - img [ref=e220]
             - generic:
               - generic:
                 - text: Critical to your team and unique to Danaher are Solution Architects, who look at your entire bioprocess—not just fragments of it— to eliminate bottlenecks, pain points, and redundant steps along your R&D pathway. How? We innovatively integrate, automate, and digitalize your complex workflows— end to end—to deliver quantifiable value across your labs.
-                - link "See Our Workflows -->" [ref=e228] [cursor=pointer]:
+                - link "See Our Workflows -->" [ref=e221] [cursor=pointer]:
                   - /url: https://lifesciences.danaher.com/us/en/solutions.html
-          - generic [ref=e229]:
-            - generic "Driving efficiency" [ref=e230] [cursor=pointer]:
-              - heading "Driving efficiency" [level=3] [ref=e231]
-              - img [ref=e233]
-              - img [ref=e236]
+          - generic [ref=e222]:
+            - generic "Driving efficiency" [ref=e223] [cursor=pointer]:
+              - heading "Driving efficiency" [level=3] [ref=e224]
+              - img [ref=e226]
+              - img [ref=e229]
             - generic:
               - generic:
                 - text: The Danaher Business System powers our constant cycle of change and improvement. This unique approach allows our exceptional people to develop innovative recommendations, then realize them using world-class solutions and products to construct sustainable processes, resulting in superior outcomes.
-                - link "See Our Process -->" [ref=e237] [cursor=pointer]:
+                - link "See Our Process -->" [ref=e230] [cursor=pointer]:
                   - /url: https://lifesciences.danaher.com/us/en/solutions.html
-    - generic [ref=e238]:
-      - heading "Browse, consult, and stay ahead with our expert-curated insights." [level=2] [ref=e240]
-      - generic [ref=e242]:
-        - generic [ref=e243]:
-          - paragraph [ref=e245]:
-            - img [ref=e247]
-          - generic [ref=e249]:
-            - heading "Browse product catalog" [level=3] [ref=e250]
-            - paragraph [ref=e251]:
+    - generic [ref=e231]:
+      - heading "Browse, consult, and stay ahead with our expert-curated insights." [level=2] [ref=e233]
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - paragraph [ref=e238]:
+            - img [ref=e240]
+          - generic [ref=e242]:
+            - heading "Browse product catalog" [level=3] [ref=e243]
+            - paragraph [ref=e244]:
               - text: Our capabilities extend beyond research to power the creation of biopharmaceuticals, cell and gene therapies and other breakthrough treatments.
-              - strong [ref=e252]:
-                - link "Shop now ->" [ref=e253] [cursor=pointer]:
+              - strong [ref=e245]:
+                - link "Shop now ->" [ref=e246] [cursor=pointer]:
                   - /url: https://lifesciences.danaher.com/us/en/products.html
-        - generic [ref=e254]:
-          - paragraph [ref=e256]:
-            - img [ref=e258]
-          - generic [ref=e260]:
-            - heading "Talk to an expert" [level=3] [ref=e261]
-            - paragraph [ref=e262]:
+        - generic [ref=e247]:
+          - paragraph [ref=e249]:
+            - img [ref=e251]
+          - generic [ref=e253]:
+            - heading "Talk to an expert" [level=3] [ref=e254]
+            - paragraph [ref=e255]:
               - text: Our experts apply technology and proven solutions, working with you to design and implement integrated workflow solutions.
-              - link "Discover how we can help ->" [ref=e263] [cursor=pointer]:
+              - link "Discover how we can help ->" [ref=e256] [cursor=pointer]:
                 - /url: https://lifesciences.danaher.com/us/en/expert.html
-        - generic [ref=e264]:
-          - paragraph [ref=e266]:
-            - img [ref=e268]
-          - generic [ref=e270]:
-            - heading "Sign up for our newsletter" [level=3] [ref=e271]
-            - paragraph [ref=e272]:
+        - generic [ref=e257]:
+          - paragraph [ref=e259]:
+            - img [ref=e261]
+          - generic [ref=e263]:
+            - heading "Sign up for our newsletter" [level=3] [ref=e264]
+            - paragraph [ref=e265]:
               - text: We’re always thinking ahead. Learn how we ensure that you can do the same.
-              - link "Subscribe today ->" [ref=e273] [cursor=pointer]:
+              - link "Subscribe today ->" [ref=e266] [cursor=pointer]:
                 - /url: https://lifesciences.danaher.com/us/en/connect/newsletter.html
-    - generic [ref=e277]:
-      - generic [ref=e279]:
-        - paragraph [ref=e280]: SCIEX
-        - heading "Intabio ZT System" [level=2] [ref=e281]
-        - paragraph [ref=e282]: Comprehensive charge variant analysis made simple
-        - paragraph [ref=e283]: The Intabio ZT system couples icIEF separation and UV detection with high resolution mass spectrometry on the ZenoTOF 7600 system.
+    - generic [ref=e270]:
+      - generic [ref=e272]:
+        - paragraph [ref=e273]: SCIEX
+        - heading "Intabio ZT System" [level=2] [ref=e274]
+        - paragraph [ref=e275]: Comprehensive charge variant analysis made simple
+        - paragraph [ref=e276]: The Intabio ZT system couples icIEF separation and UV detection with high resolution mass spectrometry on the ZenoTOF 7600 system.
         - paragraph
-        - paragraph [ref=e285] [cursor=pointer]:
-          - link "View Product" [ref=e286]:
+        - paragraph [ref=e278] [cursor=pointer]:
+          - link "View Product" [ref=e279]:
             - /url: /us/en/products/family/intabio-zt-systems.html
-      - img "Intabio" [ref=e288]
-    - generic [ref=e291]:
-      - link "abcam Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research. Browse Products →" [ref=e293] [cursor=pointer]:
+      - img "Intabio" [ref=e281]
+    - generic [ref=e284]:
+      - link "abcam Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research. Browse Products →" [ref=e286] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/abcam.html
-        - generic [ref=e296]:
-          - heading "abcam" [level=3] [ref=e297]
-          - paragraph [ref=e298]: Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research.
+        - generic [ref=e289]:
+          - heading "abcam" [level=3] [ref=e290]
+          - paragraph [ref=e291]: Helping to accelerate the next breakthrough in drug discovery, diagnostics and basic research.
           - paragraph
-          - link "Browse Products →" [ref=e299]:
+          - link "Browse Products →" [ref=e292]:
             - /url: /us/en/products/brands/abcam.html
-      - link "Aldevron Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence. Learn More →" [ref=e301] [cursor=pointer]:
+      - link "Aldevron Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence. Learn More →" [ref=e294] [cursor=pointer]:
         - /url: https://www.aldevron.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-        - generic [ref=e304]:
-          - heading "Aldevron" [level=3] [ref=e305]
-          - paragraph [ref=e306]: Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence.
+        - generic [ref=e297]:
+          - heading "Aldevron" [level=3] [ref=e298]
+          - paragraph [ref=e299]: Aldevron is a biologics CDMO powering genomic medicine pioneers from discovery to launch through expertise, innovations and operational excellence.
           - paragraph
-          - link "Learn More →" [ref=e307]:
+          - link "Learn More →" [ref=e300]:
             - /url: https://www.aldevron.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-      - link "Beckman Coulter Life Sciences For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care. Browse Products →" [ref=e309] [cursor=pointer]:
+      - link "Beckman Coulter Life Sciences For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care. Browse Products →" [ref=e302] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html
-        - generic [ref=e312]:
-          - heading "Beckman Coulter Life Sciences" [level=3] [ref=e313]
-          - paragraph [ref=e314]: For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care.
+        - generic [ref=e305]:
+          - heading "Beckman Coulter Life Sciences" [level=3] [ref=e306]
+          - paragraph [ref=e307]: For more than 80 years, Beckman Coulter has been a trusted partner for laboratory professionals, helping to advance scientific research and patient care.
           - paragraph
-          - link "Browse Products →" [ref=e315]:
+          - link "Browse Products →" [ref=e308]:
             - /url: /us/en/products/brands/beckman-coulter-life-sciences.html
-      - link "Genedata Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes. Learn More →" [ref=e317] [cursor=pointer]:
+      - link "Genedata Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes. Learn More →" [ref=e310] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/genedata.html
-        - generic [ref=e320]:
-          - heading "Genedata" [level=3] [ref=e321]
-          - paragraph [ref=e322]: Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes.
+        - generic [ref=e313]:
+          - heading "Genedata" [level=3] [ref=e314]
+          - paragraph [ref=e315]: Genedata provides enterprise software solutions that digitalize and automate data-rich and complex biopharma R&D processes.
           - paragraph
-          - link "Learn More →" [ref=e323]:
+          - link "Learn More →" [ref=e316]:
             - /url: /us/en/products/brands/genedata.html
-      - link "IDBS IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain. Browse Products →" [ref=e325] [cursor=pointer]:
+      - link "IDBS IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain. Browse Products →" [ref=e318] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/idbs.html
-        - generic [ref=e328]:
-          - heading "IDBS" [level=3] [ref=e329]
-          - paragraph [ref=e330]: IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain.
+        - generic [ref=e321]:
+          - heading "IDBS" [level=3] [ref=e322]
+          - paragraph [ref=e323]: IDBS provides purpose-built software solutions to address the data management challenges prominent across the BioPharma lifecycle and supply chain.
           - paragraph
-          - link "Browse Products →" [ref=e331]:
+          - link "Browse Products →" [ref=e324]:
             - /url: /us/en/products/brands/idbs.html
-      - link "IDT IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research. Learn More →" [ref=e333] [cursor=pointer]:
+      - link "IDT IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research. Learn More →" [ref=e326] [cursor=pointer]:
         - /url: https://www.idtdna.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-        - generic [ref=e336]:
-          - heading "IDT" [level=3] [ref=e337]
-          - paragraph [ref=e338]: IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research.
+        - generic [ref=e329]:
+          - heading "IDT" [level=3] [ref=e330]
+          - paragraph [ref=e331]: IDT empowers researchers with the genomic solutions they need to turn discoveries into breakthroughs in disease and drug development research.
           - paragraph
-          - link "Learn More →" [ref=e339]:
+          - link "Learn More →" [ref=e332]:
             - /url: https://www.idtdna.com/?utm_source=dhls_website&ajs_aid=95b1eae3-836d-4194-9540-012214c639a3
-      - link "Leica Microsystems Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways. Browse Products →" [ref=e341] [cursor=pointer]:
+      - link "Leica Microsystems Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways. Browse Products →" [ref=e334] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/leica.html
-        - generic [ref=e344]:
-          - heading "Leica Microsystems" [level=3] [ref=e345]
-          - paragraph [ref=e346]: Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways.
+        - generic [ref=e337]:
+          - heading "Leica Microsystems" [level=3] [ref=e338]
+          - paragraph [ref=e339]: Leica Microsystems develops leading-edge microscopes and scientific instruments to power technological advances and touch lives in meaningful ways.
           - paragraph
-          - link "Browse Products →" [ref=e347]:
+          - link "Browse Products →" [ref=e340]:
             - /url: /us/en/products/brands/leica.html
-      - link "Molecular Devices Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development. Browse Products →" [ref=e349] [cursor=pointer]:
+      - link "Molecular Devices Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development. Browse Products →" [ref=e342] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/molecular-devices.html
-        - generic [ref=e352]:
-          - heading "Molecular Devices" [level=3] [ref=e353]
-          - paragraph [ref=e354]: Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development.
+        - generic [ref=e345]:
+          - heading "Molecular Devices" [level=3] [ref=e346]
+          - paragraph [ref=e347]: Molecular Devices provides high-performance bioanalytical measurement solutions for life science research, pharmaceutical and biotherapeutic development.
           - paragraph
-          - link "Browse Products →" [ref=e355]:
+          - link "Browse Products →" [ref=e348]:
             - /url: /us/en/products/brands/molecular-devices.html
-      - link "Phenomenex Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges. Browse Products →" [ref=e357] [cursor=pointer]:
+      - link "Phenomenex Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges. Browse Products →" [ref=e350] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/phenomenex.html
-        - generic [ref=e360]:
-          - heading "Phenomenex" [level=3] [ref=e361]
-          - paragraph [ref=e362]: Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges.
+        - generic [ref=e353]:
+          - heading "Phenomenex" [level=3] [ref=e354]
+          - paragraph [ref=e355]: Phenomenex is a global technology leader committed to developing novel analytical chemistry solutions that solve the separation and purification challenges.
           - paragraph
-          - link "Browse Products →" [ref=e363]:
+          - link "Browse Products →" [ref=e356]:
             - /url: /us/en/products/brands/phenomenex.html
-      - link "SCIEX At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all. Browse Products →" [ref=e365] [cursor=pointer]:
+      - link "SCIEX At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all. Browse Products →" [ref=e358] [cursor=pointer]:
         - /url: https://stage.lifesciences.danaher.com/us/en/products/brands/sciex.html
-        - generic [ref=e368]:
-          - heading "SCIEX" [level=3] [ref=e369]
-          - paragraph [ref=e370]: At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all.
+        - generic [ref=e361]:
+          - heading "SCIEX" [level=3] [ref=e362]
+          - paragraph [ref=e363]: At SCIEX, our mission is to deliver solutions for the precision detection and quantification of molecules, empowering our customers to protect and advance the wellness and safety of all.
           - paragraph
-          - link "Browse Products →" [ref=e371]:
+          - link "Browse Products →" [ref=e364]:
             - /url: /us/en/products/brands/sciex.html
   - contentinfo
 ```
