@@ -7,7 +7,7 @@ test('WE-11 Verify Resources Menu Links for Blog', async ({ page }) => {
     const visual = new VisualCheck(page, 'WE-11');
   
 
-  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'domcontentloaded' , timeout: 90000 });
+  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'load' , timeout: 90000 });
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   await page.waitForLoadState('load', { timeout: 120000 });
   
