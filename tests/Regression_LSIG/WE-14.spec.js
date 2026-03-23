@@ -22,7 +22,7 @@ test('WE-14 Verify Product Search for OpCos', async ({ page }) => {
   await cvCell.click();
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('body')).toContainText(/Beckman Coulter Life Sciences/i);
-
+  await searchInput.fill('');
   await searchInput.fill('Leica DMi8 M Metallographic Microscope');
   await page.keyboard.press('Enter');
   await page.waitForLoadState('domcontentloaded');
@@ -33,6 +33,7 @@ test('WE-14 Verify Product Search for OpCos', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('body')).toContainText(/Leica Microsystems/i);
   await visual.check('Product search page');
+  await searchInput.fill('');
 
   await searchInput.fill('SpectraMax M2 Multi Mode Microplate Reader');
   await page.keyboard.press('Enter');
