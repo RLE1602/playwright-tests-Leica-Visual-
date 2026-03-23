@@ -24,7 +24,7 @@ test('WE-15 Search for a web page with its title', async ({ page }) => {
   await expect(page.locator('body')).toContainText(/Search term/i);
   await expect(page.locator('body')).toContainText(/Kintex/i);
   await visual.check('Search with title');
-  const kintexLink = page.getByRole('link', { name: /Kinetex 5 µm Biphenyl 100 Å, LC Column 150 x 10.0 mm, Ea/i }).first();
+  const kintexLink = page.getByRole('link', { name: /Kinetex 5 µm Biphenyl 100 Å/i }).first();
   await kintexLink.click();
   await page.waitForLoadState('domcontentloaded');
   await expect(page).toHaveURL(/products/i);

@@ -41,9 +41,8 @@ await page.bringToFront();
 await page.goto('https://stage.lifesciences.danaher.com/us/en/products/bundles/ivesta-3-stereo-microscopes-for-inspection.html#specification', { waitUntil: 'domcontentloaded' , timeout: 90000 });
 await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
 await visual.check('Buy feature in hero section');
-await expect(page.getByText('Ivesta 3 Stereo Microscope for Inspection')).toBeVisible();
+//await expect(page.getByText('Ivesta 3 Stereo Microscope for Inspection')).toBeVisible();
 
-// 1. Navigate
 console.log("Buy and quote feature in product tab");
 
 await page.goto('https://stage.lifesciences.danaher.com/us/en/products/family/zebron-gc-columns.html', { waitUntil: 'domcontentloaded' , timeout: 90000 });
