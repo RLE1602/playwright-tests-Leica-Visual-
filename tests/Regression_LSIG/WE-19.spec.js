@@ -12,6 +12,7 @@ test('WE-19 Verify RFQ Popup Information', async ({ page }) => {
 
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   await page.waitForTimeout(1000);
+  await page.waitForLoadState('domcontentloaded');
   await page.getByRole('button', { name: /Quote/i }).first().click();
   await page.waitForLoadState('domcontentloaded');
   await expect(page.getByText(/your online quote cart is currently empty/i)).toBeVisible();
