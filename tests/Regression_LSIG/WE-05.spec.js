@@ -9,6 +9,7 @@ test('WE-05 Verify Talk to an Expert Widget', async ({ page }) => {
   await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'domcontentloaded', timeout: 90000 });
 
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+  await page.waitForTimeout(1000);
   await page.waitForLoadState('domcontentloaded');
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.locator('//span[normalize-space()="Talk to an Expert"]').click();

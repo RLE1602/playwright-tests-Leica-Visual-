@@ -18,6 +18,8 @@ test('WE-03 Validate all OpCo links and titles', async ({ page, context }) => {
 
   await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
   await acceptCookies(page);
+  await page.waitForTimeout(1000);
+
 
   const opcos = [
     { name: 'abcam', title: /abcam/i },

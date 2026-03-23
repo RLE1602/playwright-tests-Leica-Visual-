@@ -10,6 +10,8 @@ const visual = new VisualCheck(page, 'WE-02');
 await page.goto('https://stage.lifesciences.danaher.com/us/en/products/family/atto-390.html', { waitUntil: 'domcontentloaded' , timeout: 90000 });
 
 await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+await page.waitForTimeout(1000);
+
   // Take single full-page visual check after homepage load
 await visual.check('Buy feature in hero section');
 

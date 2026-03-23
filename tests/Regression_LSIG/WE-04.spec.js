@@ -18,11 +18,13 @@ test('WE-04 Verify Empty Quote Cart Page', async ({ page }) => {
   });
 
   await acceptCookies(page); // ✅ before click
+  await page.waitForTimeout(1000);
 
   await page.getByRole('link', { name: 'Quote' }).click();
   await page.waitForLoadState('domcontentloaded');
 
   await acceptCookies(page); // ✅ after navigation
+  await page.waitForTimeout(1000);
 
   // Assertions
   await expect(page).toHaveURL(/quote-cart/);

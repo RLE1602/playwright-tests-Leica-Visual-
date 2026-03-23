@@ -5,13 +5,17 @@ import { checkBrokenImages } from '../../helpers/BrokenImages';
 
 test('WE-11 Verify Resources Menu Links for Blog', async ({ page }) => {
     const visual = new VisualCheck(page, 'WE-11');
-  
+  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'domcontentloaded', timeout: 90000 });
 
-  await page.goto('https://stage.lifesciences.danaher.com/', { waitUntil: 'load' , timeout: 90000 });
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
-  await page.waitForLoadState('load', { timeout: 120000 });
-  
+  await page.waitForTimeout(1000);
+  // await page.evaluate(() => { document.body.style.overflow = 'auto'; document.documentElement.style.overflow = 'auto'; });
+  // await page.evaluate(() => { window.scrollTo(0, 0);});
+
+  await page.getByRole('link', { name: /resources/i }).scrollIntoViewIfNeeded();
   await page.getByRole('link', { name: /resources/i }).click();
+  await page.waitForLoadState('domcontentloaded');
+  await expect(page.getByRole('link', { name: /blog/i })).toBeVisible();
   await page.getByRole('link', { name: /blog/i }).click();
   await page.waitForLoadState('domcontentloaded');
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
@@ -56,35 +60,34 @@ test('WE-11 Verify Resources Menu Links for Blog', async ({ page }) => {
   // await page.waitForLoadState('domcontentloaded');
 
   // await page.getByRole('heading', { name: /Breaking the Bottlenecks/i }).click();
+
+  await page.getByRole('link', { name: /Assays and Analytical Technologies/i }).click();
+  await page.waitForLoadState('domcontentloaded');
   await page.getByText('View All Topics').first().click();
 
   await page.getByText('Data Solutions').click();
   await page.waitForLoadState('domcontentloaded');
   await expect(page.locator('body')).toContainText('Data Solutions');
-
   await page.getByText('View All Topics').first().click();
 
-  await page.getByText('AI Takes On Drug Discovery').first().click();
+  await page.getByRole('link', { name: /AI Takes On Drug Discovery/i }).click();  
   await page.waitForLoadState('domcontentloaded');
-
-  await page.getByRole('heading', { name: /AI Takes On Drug Discovery/i }).click();
+  await expect(page.locator('h1')).toContainText(/AI Takes On Drug Discovery/i);
 
   await page.getByText('Back to blog').click();
   await page.waitForLoadState('domcontentloaded');
 
   await Promise.all([page.waitForLoadState('domcontentloaded'), page.locator('text=Next').last().click()]);
 
-  await page.getByText('mRNA Vaccines: The Story So Far… and the Path Ahead').first().click();
-  await page.waitForLoadState('domcontentloaded');
-
-  await page.getByRole('heading', { name: /mRNA Vaccines: The Story So Far… and the Path Ahead/i }).click();
-
+  await page.getByRole('link', { name: /mRNA Vaccines: The Story So Far… and the Path Ahead/i }).click();  await page.waitForLoadState('domcontentloaded');  
+  await expect(page.locator('h1')).toContainText(/mRNA Vaccines: The Story So Far… and the Path Ahead/i);
   await page.getByText('Back to blog').click();
   await page.waitForLoadState('domcontentloaded');
-
-  await page.getByText('The Role of CoAs in Supplier Oversight').first().click();
+  await Promise.all([page.waitForLoadState('domcontentloaded'), page.locator('text=Next').last().click()]);
+  await page.getByRole('link', { name: /The Role of CoAs in Supplier Oversight/i }).scrollIntoViewIfNeeded();
+  await page.getByRole('link', { name: /The Role of CoAs in Supplier Oversight/i }).click();
   await page.waitForLoadState('domcontentloaded');
-
-  await page.getByRole('heading', { name: /The Role of CoAs in Supplier Oversight/i }).click();
+  await expect(page.locator('h1')).toContainText(/The Role of CoAs in Supplier Oversight/i); 
+  await page.waitForLoadState('domcontentloaded');
 
 });
