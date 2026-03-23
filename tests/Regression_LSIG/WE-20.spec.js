@@ -17,32 +17,26 @@ test('WE-20 Verify Submit Quote Functionality From Quote Cart', async ({ page })
   await quoteInput.fill('Test');
   await page.getByRole('button', { name: /^Add and continue browsing$/i }).click();
   await page.waitForLoadState('domcontentloaded');
-//   await expect(page.locator('[class*="cart"], [class*="quote"]')).toContainText(/test/i);
-//   await page.getByRole('link', { name: /^products$/i }).click();
-//   const productCard = page.locator('[class*="card"]').first();
-//   await expect(productCard).toBeVisible();
-//   await productCard.click();
-//   await page.getByRole('button', { name: /view product/i }).click();
-//   await page.getByRole('button', { name: /request (a )?quote/i }).click();
-//   await expect(quoteInput).toBeVisible();
-//   await quoteInput.fill('Test 2');
-//   await page.getByRole('button', { name: /^add$/i }).click();
-//   await visual.check('Empty quote page');
+  await page.getByRole('link', { name: /products/i }).scrollIntoViewIfNeeded();
+  await page.getByRole('link', { name: /products/i }).click();
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('link', { name: /Assay Kits/i }).click();
+
 
   await expect(page.getByRole('heading', { name: /request a quote/i })).toBeVisible();
   await expect(page.getByRole('heading', { name: /my quote cart/i })).toBeVisible();
 
   await page.getByLabel(/first name/i).fill('mitali');
   await page.getByLabel(/last name/i).fill('himane');
-  await page.evaluate(() => window.scrollBy(0, 700));
+  await page.evaluate(() => window.scrollBy(0, 400));
 
-  await page.getByLabel(/email/i).fill('mithali.himane@dhlscontractors.com');
+  await page.getByLabel(/email address/i).first().fill('mithali.himane@dhlscontractors.com');
   await page.getByLabel(/phone/i).fill('238-732-8788');
   await page.getByLabel(/company/i).fill('test_company');
   await page.getByLabel(/country/i).selectOption({ label: 'Germany' });
   await page.getByLabel(/address/i).fill('Friedrichstraße Berlin Germany');
   await page.getByLabel(/city/i).fill('Berlin');
-  await page.evaluate(() => window.scrollBy(0, 900));
+  await page.evaluate(() => window.scrollBy(0, 700));
 
   await page.getByLabel(/zip|postal/i).fill('10012');
   await page.getByRole('checkbox').check();
