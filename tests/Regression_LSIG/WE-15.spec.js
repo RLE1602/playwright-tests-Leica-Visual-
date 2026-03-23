@@ -2,16 +2,6 @@ import { test, expect } from '@playwright/test';
 
 test('WE-15 Search for a web page with its title', async ({ page }) => {
 
-  await page.goto('https://stage.lifesciences.danaher.com/', {
-    waitUntil: 'domcontentloaded',
-    timeout: 90000
-  });
-
-  // Accept cookies if visible
-  const acceptBtn = page.getByRole('button', { name: /accept/i }).first();
-  if (await acceptBtn.isVisible()) {
-    await acceptBtn.click();
-  }
 
   const searchInput = page.locator('input[type="search"], input[placeholder*="Search" i]').first();
 
