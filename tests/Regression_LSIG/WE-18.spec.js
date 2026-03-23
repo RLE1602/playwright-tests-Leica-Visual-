@@ -61,16 +61,10 @@ test('WE-18 Verify Process Steps for Work Flow Solutions', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded');
 
   await expect(page.locator('body')).toContainText(/enterprise-level workflow/i);
-  await page.waitForTimeout(120000);
-
-  await page.getByLabel(/digital solutions/i).first().click();
+  await page.getByText(/digital solutions/i).first().click();
   await page.waitForLoadState('domcontentloaded');
 
-  await page
-    .getByText(/All leverage an extensive portfolio and accelerate Antisense/i)
-    .first()
-    .click();
-
+  await page.getByText(/All leverage an extensive portfolio and accelerate Antisense/i).first().click();
   await page.waitForLoadState('domcontentloaded');
 
   await page.evaluate(() => window.scrollBy(0, 800));
