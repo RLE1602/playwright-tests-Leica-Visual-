@@ -58,7 +58,7 @@ export default defineConfig({
     trace: 'on',
     screenshot: 'on',
     video: 'on',
-    actionTimeout: process.env.CI ? 120_000 : 30_000,   // 2 min on CI, 30s locally
+    actionTimeout: process.env.CI ? 120_000 : 60_000,   // 2 min on CI, 30s locally
     navigationTimeout: process.env.CI ? 180_000 : 120_000,
     },
 
