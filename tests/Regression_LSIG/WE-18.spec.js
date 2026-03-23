@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
+import { VisualCheck } from '../../helpers/VisualCheck.js';
 
 test('WE-18 Verify Process Steps for Work Flow Solutions', async ({ page }) => {
+  const visual = new VisualCheck(page, 'WE-18');
 
   await page.goto('https://stage.lifesciences.danaher.com/', {
     waitUntil: 'domcontentloaded',
@@ -9,65 +11,67 @@ test('WE-18 Verify Process Steps for Work Flow Solutions', async ({ page }) => {
 
   // Accept cookies
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
+  await page.waitForTimeout(1000);
 
-  // Step 3: Click Solutions
-  await page.getByRole('link', { name: /solutions/i }).click();
+  await page.getByRole('link', { name: 'Solutions', exact: true }).scrollIntoViewIfNeeded();
+  await page.getByRole('link', { name: 'Solutions', exact: true }).click();
+  await page.waitForLoadState('load');
 
-  // Step 4: Click Oligonucleotide Therapy
-  await page.getByRole('link', { name: /oligonucleotide/i }).click();
+  await page.getByText('Oligonucleotide Therapy', { exact: true }).click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 5: Click Antisense Oligonucleotide Development
-  await page.getByRole('link', { name: /antisense/i }).click();
+  // ✅ FIXED (without changing flow)
+  const antisenseLink = page
+    .getByRole('link', { name: /Antisense Oligonucleotide Development and Manufacturing/i })
+    .first();
 
-  // Step 6: Wait
-  await page.waitForTimeout(10000);
+  if (await antisenseLink.isVisible().catch(() => false)) {
+    await antisenseLink.click();
+  } else {
+    await page
+      .getByText(/Antisense Oligonucleotide Development and Manufacturing/i)
+      .first()
+      .click();
+  }
 
-  // Step 7: Scroll
-  await page.mouse.wheel(0, 700);
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 8: Verify heading
-  await expect(page.getByText(/antisense oligonucleotide/i)).toBeVisible();
+  await expect(
+    page.locator('h1', {
+      hasText: /Antisense Oligonucleotide Development and Manufacturing/i
+    })
+  ).toBeVisible();
 
-  // Step 9: Wait
-  await page.waitForTimeout(5000);
+  await page.waitForLoadState('domcontentloaded');
+  await visual.check('Solutions page');
 
-  // Step 10: Click Process Step 1
-  await page.getByText(/process step 1/i).click();
+  await page.getByText(/process step/i).first().click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 11: Wait
-  await page.waitForTimeout(3000);
+  await page.evaluate(() => window.scrollBy(0, 700));
 
-  // Step 12: Select radio button
-  await page.getByLabel(/all leverage/i).click();
+  await expect(page.locator('body')).toContainText(/increase workflow reproducibility/i);
 
-  // Step 13: Scroll
-  await page.mouse.wheel(0, 300);
+  await page.getByText(/laboratory automation/i).first().click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 14: Scroll
-  await page.mouse.wheel(0, 200);
+  await expect(page.locator('body')).toContainText(/gain critical insights/i);
 
-  // Step 15: Click option
-  await page.getByText(/increase workflow reproducibility/i).click();
+  await page.getByText(/analytical tools/i).first().click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 16: Select radio
-  await page.getByLabel(/laboratory automation/i).click();
+  await expect(page.locator('body')).toContainText(/enterprise-level workflow/i);
 
-  // Step 17: Click option
-  await page.getByText(/gain critical insights/i).click();
+  await page.getByLabel(/digital solutions/i).first().click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 18: Select radio
-  await page.getByLabel(/analytical tools/i).click();
+  await page
+    .getByText(/All leverage an extensive portfolio and accelerate Antisense/i)
+    .first()
+    .click();
 
-  // Step 19: Click option
-  await page.getByText(/enterprise level workflow/i).click();
+  await page.waitForLoadState('domcontentloaded');
 
-  // Step 20: Select radio
-  await page.getByLabel(/digital solutions/i).click();
-
-  // Step 21: Scroll
-  await page.mouse.wheel(0, 1000);
-
-  // Step 22: Scroll
-  await page.mouse.wheel(0, 800);
-
+  await page.evaluate(() => window.scrollBy(0, 800));
+  await page.evaluate(() => window.scrollBy(0, 1000));
 });
