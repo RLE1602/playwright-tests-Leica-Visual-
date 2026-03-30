@@ -53,7 +53,7 @@ test('WE-20 Verify Submit Quote Functionality From Quote Cart', async ({ page })
   //await page.getByLabel(/city/i).fill('Berlin');
   //await page.getByLabel(/zip|postal/i).scrollIntoViewIfNeeded();
   //await page.getByLabel(/zip|postal/i).fill('10012');
-  await page.locator('#Email_Opt_In').check();
+  await page.locator('//input[@id="Email_Opt_In"]').click();
   await page.getByRole('button', { name: /submit quote request/i }).click();
   //await expect(page.getByRole('heading', { name: /thank you/i })).toBeVisible();
   //await expect(page.getByText(/your quote request has been/i)).toBeVisible();
