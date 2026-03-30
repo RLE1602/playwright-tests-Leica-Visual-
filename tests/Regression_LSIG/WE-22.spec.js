@@ -7,8 +7,9 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
     waitUntil: 'domcontentloaded',
     timeout: 90000
   });
+  await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
 
-  // Scroll to footer (STABLE FIX)
+  // Scroll to footer
   await page.locator('footer').scrollIntoViewIfNeeded();
 
   // 3. Verify Legal section
