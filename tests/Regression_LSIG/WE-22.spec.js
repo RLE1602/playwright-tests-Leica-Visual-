@@ -77,10 +77,7 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
 
   // 22. Click Cookie Settings
   await page.getByRole('button', { name: /cookie settings/i }).click();
-
-  // 23. Wait for modal
-  await page.waitForTimeout(5000);
-
+  await page.waitForLoadState('domcontentloaded');
   // 24. Verify homepage URL
   await expect(page).toHaveURL(/lifesciences\.danaher\.com/);
 
@@ -91,7 +88,7 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
   await page.getByRole('button', { name: /confirm my choices/i }).click();
 
   // 27. Wait
-  await page.waitForTimeout(5000);
+  await page.waitForLoadState('domcontentloaded');
 
   // Final scroll (optional)
   await page.locator('footer').scrollIntoViewIfNeeded();
