@@ -11,12 +11,16 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
   await page.getByRole('button', { name: /accept/i }).first().click().catch(() => {});
   const footer = page.locator('footer');
   await footer.scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollBy(0, 4950));
+
   await expect(footer).toBeVisible();
   const cookiePolicy = footer.getByRole('link', { name: /cookie policy/i });
+  await page.evaluate(() => window.scrollBy(0, 4950));
   await expect(cookiePolicy).toBeVisible();
   await cookiePolicy.click({ force: true });
   await expect(page).toHaveURL(/cookie/i);
   await page.goBack();
+  await page.evaluate(() => window.scrollBy(0, 4950));
   await footer.scrollIntoViewIfNeeded();
   const dnsLink = footer.getByText('Do Not Sell or Share My Data', { exact: true });
   await expect(dnsLink).toBeVisible({ timeout: 10000 });

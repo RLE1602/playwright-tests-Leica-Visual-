@@ -39,9 +39,9 @@ test('WE-21 Verify Quote Delete Item and Counter', async ({ page }) => {
   await visual.check('My quote cart page');
 
   await page.evaluate(() => window.scrollBy(0, -800));
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).first().click();
   await expect(counter).toContainText(/1|2/i);
   await page.evaluate(() => window.scrollBy(0, 200));
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).second().click();
   await expect(page.getByText(/your online quote cart is currently empty/i)).toBeVisible();
 });
