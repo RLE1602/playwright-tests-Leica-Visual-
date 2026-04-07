@@ -4,12 +4,7 @@ import { VisualCheck } from '../../helpers/VisualCheck.js';
 test('Verify Filters, Navigation, and Search Flow', async ({ page }) => {
   const visual = new VisualCheck(page, 'WE-25');
 
-  // 1. Navigate
-  await page.goto('https://stage.lifesciences.danaher.com/', {
-    waitUntil: 'domcontentloaded'
-  });
-
-  // Accept cookies (safe)
+  await page.goto('https://stage.lifesciences.danaher.com/', {waitUntil: 'domcontentloaded'});
   await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
 
   // 2. Press Enter / initial interaction (if needed)

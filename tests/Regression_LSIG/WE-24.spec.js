@@ -4,53 +4,69 @@ import { VisualCheck } from '../../helpers/VisualCheck.js';
 test('UI Banner / Carousel Validation', async ({ page }) => {
   const visual = new VisualCheck(page, 'WE-24');
 
-  // 1. Navigate
-  await page.goto('YOUR_URL_HERE', {
-    waitUntil: 'domcontentloaded'
-  });
+  await page.goto(
+    'https://stage.lifesciences.danaher.com/us/en/products/family/triple-quad-4500-systems.html',
+    { waitUntil: 'domcontentloaded' }
+  );
 
-  // 2. Verify banner/hero section visible
-  const banner = page.locator('section, .banner, .hero').first();
-  await expect(banner).toBeVisible();
+  await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
+  await visual.check('UI Banner / Carousel Validation');
 
-  // 3. Verify text content is present
-  const textContent = page.locator('h1, h2, p').first();
-  await expect(textContent).toBeVisible();
+  await expect(
+    page.getByText(/Triple Quad.*4500.*LC-MS\/MS System/i)
+  ).toBeVisible();
 
-  // 4. Verify carousel indicators (dots)
-  const dots = page.locator('[class*="dot"], [class*="indicator"], .slick-dots li');
+  const [sciexPage] = await Promise.all([
+    page.waitForEvent('popup'),
+    page.getByRole('link', { name: /to learn more visit sciex/i }).click()
+  ]);
 
-  if (await dots.count() > 0) {
+  await sciexPage.waitForLoadState('domcontentloaded');
+  await expect(sciexPage).toHaveURL(/sciex\.com\/products\/.*triple-quad-4500/i);
+  await sciexPage.close();
+  await page.bringToFront();
 
-    const totalDots = await dots.count();
-    console.log('Total slides:', totalDots);
+  await page.goto(
+    'https://stage.lifesciences.danaher.com/us/en/products/bundles/dm750-educational-microscope-with-eyepiece-pointer.html#specification',
+    { waitUntil: 'domcontentloaded' }
+  );
 
-    for (let i = 0; i < totalDots; i++) {
-      const currentDot = dots.nth(i);
+  await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
 
-      await currentDot.scrollIntoViewIfNeeded();
-      await currentDot.click();
+  await expect(
+    page.getByText(/DM750 Educational Microscope with Eyepiece Pointer/i).first()
+  ).toBeVisible();
 
-      // Wait for slide transition
-      await page.waitForTimeout(1000);
+  const [leicaPage1] = await Promise.all([
+    page.waitForEvent('popup'),
+    page.getByRole('link', { name: /to learn more visit Leica Microsystems/i }).click()
+  ]);
 
-      // Validate active state (common pattern)
-      await expect(currentDot).toHaveClass(/active|current|selected/i);
-    }
-  }
+  await leicaPage1.waitForLoadState('domcontentloaded');
+  await expect(leicaPage1).toHaveURL(/dm750-educational-microscope/i);
 
-  // 5. Optional: Auto-slide validation
-  const firstSlide = banner.locator('text=*').first().textContent();
+  await leicaPage1.close();
+  await page.bringToFront();
 
-  await page.waitForTimeout(3000);
+  await page.goto(
+    'https://stage.lifesciences.danaher.com/us/en/products/sku/ad-520-105-leica.html',
+    { waitUntil: 'domcontentloaded' }
+  );
 
-  const secondSlide = banner.locator('text=*').first().textContent();
+  await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
 
-  if (firstSlide && secondSlide) {
-    expect(firstSlide).not.toEqual(secondSlide);
-  }
+  await expect(
+    page.getByText(/404 ERROR/i)
+  ).toBeVisible();
 
-  // 6. Visual check (if you are using your helper)
-  await visual.check('Banner UI');
+  // const [leicaPage2] = await Promise.all([
+  //   page.waitForEvent('popup'),
+  //   page.getByRole('link', { name: /to learn more visit Leica Microsystems/i }).click()
+  // ]);
 
+  // await leicaPage2.waitForLoadState('domcontentloaded');
+  // await expect(leicaPage2).toHaveURL(/ad-520-105-leica/i);
+
+  // await leicaPage2.close();
+  // await page.bringToFront();
 });

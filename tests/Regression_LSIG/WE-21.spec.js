@@ -37,11 +37,22 @@ test('WE-21 Verify Quote Delete Item and Counter', async ({ page }) => {
   await expect(counter).toHaveText(/\d+/);
   await page.getByRole('heading', { name: /my quote cart/i }).scrollIntoViewIfNeeded();
   await visual.check('My quote cart page');
-
   await page.evaluate(() => window.scrollBy(0, -800));
-  await page.getByRole('button').filter({ hasText: /^$/ }).first().click();
-  await expect(counter).toContainText(/1|2/i);
-  await page.evaluate(() => window.scrollBy(0, 200));
-  await page.getByRole('button').filter({ hasText: /^$/ }).second().click();
-  await expect(page.getByText(/your online quote cart is currently empty/i)).toBeVisible();
+
+let cartItems = page.locator('.quotecart li');
+//FIRST DELETE
+let firstItem = cartItems.first();
+await firstItem.locator('button:has(svg)').last().click();
+//await expect(cartItems).toHaveCount(1);
+await expect(counter).toContainText(/1/i);
+//SECOND DELETE
+cartItems = page.locator('.quotecart li');
+firstItem = cartItems.first();
+//await firstItem.locator('//div[contains(@class, "quotecart")]//button[.//*[name()="svg"]]').click();
+await firstItem.locator('button:visible').last().click();
+await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
+//await firstItem.locator('button:has(svg)').click();
+//await expect(cartItems).toHaveCount(0);
+await expect(page.getByText(/your online quote cart is currently empty/i)).toBeVisible();
+
 });

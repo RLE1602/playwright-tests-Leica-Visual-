@@ -17,6 +17,8 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
   const cookiePolicy = footer.getByRole('link', { name: /cookie policy/i });
   await page.evaluate(() => window.scrollBy(0, 4950));
   await expect(cookiePolicy).toBeVisible();
+  await visual.check('Footer Legal Links');
+
   await cookiePolicy.click({ force: true });
   await expect(page).toHaveURL(/cookie/i);
   await page.goBack();
@@ -49,5 +51,4 @@ test('WE-22 Verify Legal Links in Footer Section', async ({ page }) => {
     }
   }
   await page.evaluate(() => window.scrollBy(0, 4950));
-  await visual.check('Footer Legal Links');
 });
