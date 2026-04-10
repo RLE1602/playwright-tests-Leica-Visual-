@@ -10,6 +10,7 @@ test('WE-17 WE-17 Verify See all product Family in this line link from Product T
     waitUntil: 'domcontentloaded'
   });
   await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
+  await page.waitForLoadState('domcontentloaded');
   // const seeAllFamily = page.getByRole('link', { name: /see all product family/i });
   // if (await seeAllFamily.isVisible()) {
   //   await seeAllFamily.click();
@@ -30,6 +31,9 @@ test('WE-17 WE-17 Verify See all product Family in this line link from Product T
   await page.goto('https://stage.lifesciences.danaher.com/us/en/products/sku/ag0-9201.html', {
     waitUntil: 'domcontentloaded'});
   await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
+  await page.waitForLoadState('domcontentloaded');
+  await visual.check('See all product family link from Product Tab1');
+
   // const seeAllProducts = page.getByRole('link', { name: /see all products in this family/i });
   // if (await seeAllProducts.isVisible()) {
   //   await seeAllProducts.click();
@@ -43,19 +47,19 @@ test('WE-17 WE-17 Verify See all product Family in this line link from Product T
   });
 
   await page.getByRole('button', { name: /accept/i }).click().catch(() => {});
-  await expect(page.getByText(/DM750 Educational Microscope/i)).toBeVisible();
-
-  // 16. Scroll
+  await page.waitForLoadState('domcontentloaded');
+  await visual.check('See all product family link from Product Tab2');
+  await expect(page.getByText(/DM750 Educational Microscope/i).first()).toBeVisible();
   await page.evaluate(() => window.scrollBy(0, 200));
 
   const bundle = page.getByRole('link', { name: /see all items in this bundle/i });
   if (await bundle.isVisible()) {
     await bundle.click();
   }
-
+  await page.evaluate(() => window.scrollBy(0, 4000));
   await expect(page.getByText(/Product Parts List/i)).toBeVisible();
   await expect(page.getByText(/DM 750 BF 4 Obj Plan/i)).toBeVisible();
-  await expect(page.getByText(/US power cord/i)).toBeVisible();
+  await expect(page.getByText(/U.S. power cord/i)).toBeVisible();
   await page.evaluate(() => window.scrollBy(0, document.body.scrollHeight));
 
 });
