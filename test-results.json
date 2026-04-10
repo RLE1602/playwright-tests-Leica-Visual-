@@ -50,12 +50,6 @@
         {
           "outputFile": "test-results.json"
         }
-      ],
-      [
-        "C:\\Users\\RLE1602\\Desktop\\Leica\\node_modules\\@argos-ci\\playwright\\dist\\reporter.js",
-        {
-          "uploadToArgos": false
-        }
       ]
     ],
     "reportSlowTests": {
@@ -73,14 +67,14 @@
   },
   "suites": [
     {
-      "title": "WE-03.spec.js",
-      "file": "WE-03.spec.js",
+      "title": "WE-17.spec.js",
+      "file": "WE-17.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "WE-03 Verify Each OpCo Link From Top Section",
-          "ok": false,
+          "title": "WE-17 WE-17 Verify See all product Family in this line link from Product Tab(Product tab and Product part list tab)",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -93,123 +87,51 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 50621,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/mybeckman/\u001b[39m\nReceived string:  \u001b[31m\"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/mybeckman/\u001b[39m\nReceived string:  \u001b[31m\"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[22m\n\n    at stepFn (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:47:26)\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:9)\n    at navigateToOpCoAndVerifyURL (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:46:11)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:72:7\n    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:3)\n    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:71:5",
-                    "location": {
-                      "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
-                      "column": 26,
-                      "line": 47
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m     \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Verify URL pattern for ${name}`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(urlPattern)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m     }\u001b[33m,\u001b[39m screenshotFolder)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m   }\n \u001b[90m 50 |\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
-                        "column": 26,
-                        "line": 47
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/mybeckman/\u001b[39m\nReceived string:  \u001b[31m\"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    9 × unexpected value \"https://stage.lifesciences.danaher.com/us/en/products/brands/beckman-coulter-life-sciences.html\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m     \u001b[36mawait\u001b[39m visualStep(page\u001b[33m,\u001b[39m \u001b[32m`Verify URL pattern for ${name}`\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveURL(urlPattern)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m     }\u001b[33m,\u001b[39m screenshotFolder)\u001b[33m;\u001b[39m\n \u001b[90m 49 |\u001b[39m   }\n \u001b[90m 50 |\u001b[39m\u001b[0m\n\u001b[2m    at stepFn (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:47:26)\u001b[22m\n\u001b[2m    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:9)\u001b[22m\n\u001b[2m    at navigateToOpCoAndVerifyURL (C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:46:11)\u001b[22m\n\u001b[2m    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:72:7\u001b[22m\n\u001b[2m    at visualStep (C:\\Users\\RLE1602\\Desktop\\Leica\\helpers\\visualStep.js:17:3)\u001b[22m\n\u001b[2m    at C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js:71:5\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "➡️ Step: Open Homepage\n"
-                    },
-                    {
-                      "text": "➡️ Step: Navigate to Abcam\n"
-                    },
-                    {
-                      "text": "➡️ Step: Check visibility of Abcam link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Check enabled state of Abcam link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Click Abcam link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Wait for h1 to be visible on Abcam page\n"
-                    },
-                    {
-                      "text": "➡️ Step: Verify URL pattern for Abcam\n"
-                    },
-                    {
-                      "text": "➡️ Step: Return to Homepage after Abcam\n"
-                    },
-                    {
-                      "text": "➡️ Step: Navigate to Beckman Coulter\n"
-                    },
-                    {
-                      "text": "➡️ Step: Check visibility of Beckman Coulter link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Check enabled state of Beckman Coulter link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Click Beckman Coulter link\n"
-                    },
-                    {
-                      "text": "➡️ Step: Wait for h1 to be visible on Beckman Coulter page\n"
-                    },
-                    {
-                      "text": "➡️ Step: Verify URL pattern for Beckman Coulter\n"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 133635,
+                  "errors": [],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-12T12:29:07.786Z",
+                  "startTime": "2026-04-10T05:49:59.612Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\test-failed-1.png"
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-17-WE-17-WE-17-Verify-S-c7b75--and-Product-part-list-tab--chromium\\test-finished-1.png"
                     },
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\error-context.md"
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-17-WE-17-WE-17-Verify-S-c7b75--and-Product-part-list-tab--chromium\\video.webm"
                     },
                     {
                       "name": "trace",
                       "contentType": "application/zip",
-                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-03-WE-03-Verify-Each-OpCo-Link-From-Top-Section-chromium\\trace.zip"
+                      "path": "C:\\Users\\RLE1602\\Desktop\\Leica\\test-results\\WE-17-WE-17-WE-17-Verify-S-c7b75--and-Product-part-list-tab--chromium\\trace.zip"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\RLE1602\\Desktop\\Leica\\tests\\Regression_LSIG\\WE-03.spec.js",
-                    "column": 26,
-                    "line": 47
-                  }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
-          "id": "f24c0050e24b4ca212dd-843d6dd68874fe1405c1",
-          "file": "WE-03.spec.js",
-          "line": 7,
-          "column": 1
+          "id": "0979fe24dc54be6fca89-0a3ad0d2ba40d2bb6a6d",
+          "file": "WE-17.spec.js",
+          "line": 5,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-03-12T12:29:06.394Z",
-    "duration": 53510.685,
-    "expected": 0,
+    "startTime": "2026-04-10T05:49:58.652Z",
+    "duration": 135835.35499999998,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }
