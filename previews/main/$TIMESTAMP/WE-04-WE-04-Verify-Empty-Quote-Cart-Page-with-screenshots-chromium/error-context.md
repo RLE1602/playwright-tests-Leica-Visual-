@@ -1,0 +1,207 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e8]:
+        - banner [ref=e10]:
+          - navigation [ref=e14]:
+            - list [ref=e15]:
+              - listitem [ref=e16]:
+                - link "Abcam" [ref=e17] [cursor=pointer]:
+                  - /url: https://www.abcam.com/?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Abcam" [ref=e18]
+              - listitem [ref=e19]:
+                - link "Beckman Coulter" [ref=e20] [cursor=pointer]:
+                  - /url: https://www.beckman.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Beckman Coulter" [ref=e21]
+              - listitem [ref=e22]:
+                - link "IDBS" [ref=e23] [cursor=pointer]:
+                  - /url: https://www.idbs.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "IDBS" [ref=e24]
+              - listitem [ref=e25]:
+                - link "Leica" [ref=e26] [cursor=pointer]:
+                  - /url: https://www.leica-microsystems.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Leica" [ref=e27]
+              - listitem [ref=e28]:
+                - link "Molecular Devices" [ref=e29] [cursor=pointer]:
+                  - /url: http://www.moleculardevices.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Molecular Devices" [ref=e30]
+              - listitem [ref=e31]:
+                - link "Phenomenex" [ref=e32] [cursor=pointer]:
+                  - /url: http://www.phenomenex.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Phenomenex" [ref=e33]
+              - listitem [ref=e34]:
+                - link "Sciex" [ref=e35] [cursor=pointer]:
+                  - /url: https://sciex.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Sciex" [ref=e36]
+              - listitem [ref=e37]:
+                - link "Aldevron" [ref=e38] [cursor=pointer]:
+                  - /url: https://www.aldevron.com?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "Aldevron" [ref=e39]
+              - listitem [ref=e40]:
+                - link "IDT" [ref=e41] [cursor=pointer]:
+                  - /url: https://www.idtdna.com/pages?utm_source=dhls_website&utm_medium=referral&utm_content=header
+                  - img "IDT" [ref=e42]
+          - navigation [ref=e43]:
+            - generic [ref=e44]:
+              - link "Danaher" [ref=e45] [cursor=pointer]:
+                - /url: /
+                - img "Danaher" [ref=e46]
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic "Global" [ref=e49]:
+                    - generic [ref=e52]:
+                      - link "Login Register" [ref=e53] [cursor=pointer]:
+                        - /url: https://stage.lifesciences.danaher.com/us/en/login.html
+                        - img [ref=e54]
+                        - generic [ref=e56]: Login Register
+                      - link "Quote 0" [ref=e57] [cursor=pointer]:
+                        - /url: https://stage.lifesciences.danaher.com/us/en/quote-cart.html
+                        - img [ref=e58]
+                        - generic [ref=e60]: Quote
+                        - generic [ref=e61]: "0"
+                      - link "Cart 0" [ref=e62] [cursor=pointer]:
+                        - /url: https://stage.lifesciences.danaher.com/us/en/cart.html
+                        - img [ref=e63]
+                        - generic [ref=e65]: Cart
+                        - generic [ref=e66]: "0"
+                  - generic [ref=e69]:
+                    - textbox "Search field with suggestions. Suggestions may be available under this field. To send, press Enter." [ref=e71]:
+                      - /placeholder: Search
+                    - button "Search" [ref=e72] [cursor=pointer]:
+                      - img [ref=e74]
+                - generic [ref=e81]:
+                  - link "Life Sciences" [ref=e83] [cursor=pointer]:
+                    - /url: /
+                  - button "Solutions" [ref=e84] [cursor=pointer]:
+                    - generic [ref=e85]: Solutions
+                    - img [ref=e86]
+                  - button "Driving Results" [ref=e88] [cursor=pointer]:
+                    - link "Driving Results" [ref=e89]:
+                      - /url: /us/en/we-see-a-way.html
+                  - button "Products" [ref=e90] [cursor=pointer]:
+                    - generic [ref=e91]: Products
+                    - img [ref=e92]
+                  - button "Resources" [ref=e94] [cursor=pointer]:
+                    - generic [ref=e95]: Resources
+                    - img [ref=e96]
+                  - button "About Us" [ref=e98] [cursor=pointer]:
+                    - link "About Us" [ref=e99]:
+                      - /url: /us/en/about-us.html
+        - navigation "Breadcrumb" [ref=e102]:
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "Home" [ref=e105] [cursor=pointer]:
+                - /url: /
+                - img [ref=e106]
+                - generic [ref=e109]: Home
+            - listitem [ref=e110]:
+              - img [ref=e111]
+              - generic [ref=e113]: Quote Cart
+    - generic [ref=e127]:
+      - img "Empty Quote Cart Image" [ref=e128]
+      - heading "Your online quote cart is currently empty" [level=3] [ref=e129]
+      - button "Request a Quote" [ref=e132] [cursor=pointer]
+      - link "Continue browsing our site" [ref=e133] [cursor=pointer]:
+        - /url: /
+  - contentinfo "Footer" [ref=e142]:
+    - paragraph [ref=e143]: Footer
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - paragraph [ref=e147]: Solutions
+          - list [ref=e148]:
+            - listitem [ref=e149]:
+              - link "Cell Line Development" [ref=e150] [cursor=pointer]:
+                - /url: /us/en/solutions/mabs/cell-line-development.html
+            - listitem [ref=e151]:
+              - link "mRNA Development" [ref=e152] [cursor=pointer]:
+                - /url: /us/en/solutions/mrna-therapy.html
+            - listitem [ref=e153]:
+              - link "Antisense Oligonucleotide" [ref=e154] [cursor=pointer]:
+                - /url: /us/en/solutions/oligonucleotide-therapy/antisense-oligonucleotide-development-manufacturing.html
+            - listitem [ref=e155]:
+              - link "pDNA Synthesis" [ref=e156] [cursor=pointer]:
+                - /url: /us/en/solutions/pdna-synthesis.html
+            - listitem [ref=e157]:
+              - link "Small Molecules" [ref=e158] [cursor=pointer]:
+                - /url: /us/en/solutions/small-molecule-drug-discovery.html
+            - listitem [ref=e159]:
+              - link "Cell Therapy" [ref=e160] [cursor=pointer]:
+                - /url: /us/en/solutions/cell-therapy.html
+            - listitem [ref=e161]:
+              - link "Gene Therapy" [ref=e162] [cursor=pointer]:
+                - /url: /us/en/solutions/gene-therapy.html
+        - generic [ref=e163]:
+          - paragraph [ref=e164]: Explore
+          - list [ref=e165]:
+            - listitem [ref=e166]:
+              - link "Products" [ref=e167] [cursor=pointer]:
+                - /url: /us/en/products.html
+            - listitem [ref=e168]:
+              - link "Solutions" [ref=e169] [cursor=pointer]:
+                - /url: /us/en/solutions.html
+            - listitem [ref=e170]:
+              - link "Applications" [ref=e171] [cursor=pointer]:
+                - /url: /us/en/application.html
+            - listitem [ref=e172]:
+              - link "Technical Library" [ref=e173] [cursor=pointer]:
+                - /url: /us/en/library.html
+            - listitem [ref=e174]:
+              - link "Talk to an Expert" [ref=e175] [cursor=pointer]:
+                - /url: /us/en/expert.html
+            - listitem [ref=e176]:
+              - link "Request a Quote" [ref=e177] [cursor=pointer]:
+                - /url: /us/en/quote-cart.html
+        - generic [ref=e178]:
+          - paragraph [ref=e179]: Company
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - link "About" [ref=e182] [cursor=pointer]:
+                - /url: /us/en/about-us.html
+            - listitem [ref=e183]:
+              - link "News" [ref=e184] [cursor=pointer]:
+                - /url: /us/en/news.html
+            - listitem [ref=e185]:
+              - link "Blog" [ref=e186] [cursor=pointer]:
+                - /url: /us/en/blog.html
+            - listitem [ref=e187]:
+              - link "Careers" [ref=e188] [cursor=pointer]:
+                - /url: https://jobs.danaher.com/global/en?utm_source=dhls_website&utm_medium=referral&utm_content=footer
+        - generic [ref=e189]:
+          - paragraph [ref=e190]: Legal
+          - list [ref=e191]:
+            - listitem [ref=e192]:
+              - link "Cookie Policy" [ref=e193] [cursor=pointer]:
+                - /url: /us/en/legal/cookies.html
+            - listitem [ref=e194]:
+              - link "Do Not Sell or Share My Data" [ref=e195] [cursor=pointer]:
+                - /url: /us/en/legal/ccpa.html
+            - listitem [ref=e196]:
+              - link "Manage Cookies" [ref=e197] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e198]:
+              - link "Privacy Policy" [ref=e199] [cursor=pointer]:
+                - /url: /us/en/legal/privacy-policy.html
+            - listitem [ref=e200]:
+              - link "Terms of Use" [ref=e201] [cursor=pointer]:
+                - /url: /us/en/legal/terms-of-use.html
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - heading "Subscribe to our newsletter" [level=3] [ref=e204]
+          - paragraph [ref=e205]: The latest news, articles, and resources, sent to your inbox weekly.
+        - link "Subscribe" [ref=e208] [cursor=pointer]:
+          - /url: /us/en/connect/newsletter.html
+      - generic [ref=e209]:
+        - link "LinkedIn" [ref=e211] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/danaher-life-sciences/?utm_source=dhls_website
+          - generic [ref=e212]: LinkedIn
+          - img [ref=e213]
+        - paragraph [ref=e215]: © 2024 DH Life Sciences, LLC. All Rights Reserved.
+  - iframe [ref=e218]:
+    - generic [ref=f2e4]:
+      - text: protected by
+      - strong [ref=f2e5]: reCAPTCHA
+```

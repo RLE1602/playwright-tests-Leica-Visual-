@@ -92,7 +92,7 @@
       - generic [ref=e96]:
         - generic [ref=e99]:
           - paragraph [ref=e100]: Digital & AI-Powered Solutions
-          - heading "Unifying Insight, Speed, and Precision across the Therapeutic Lifecycle" [level=2] [ref=e101]
+          - heading "Unifying Insight, Speed, and Precision across the Therapeutic Lifecycle" [level=1] [ref=e101]
           - generic [ref=e102]:
             - paragraph [ref=e103] [cursor=pointer]:
               - link "Learn More" [ref=e104]:
@@ -147,7 +147,7 @@
             - heading "Increase assay sensitivity by 50% using AI-based phenotypic classification." [level=3] [ref=e159]
             - paragraph [ref=e160]:
               - link "Explore ->" [ref=e161] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/genedata-screener-ai-organoid-assay-analysis.html
+                - /url: /us/en/we-see-a-way/genedata-screener-ai-organoid-assay-analysis.html
         - generic [ref=e162]:
           - paragraph [ref=e164]:
             - img [ref=e166]
@@ -155,7 +155,7 @@
             - heading "Boost in-house organoid production by 25 times" [level=3] [ref=e169]
             - paragraph [ref=e170]:
               - link "Explore ->" [ref=e171] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/automated-organoid-culture-cellxpress-ai.html
+                - /url: /us/en/we-see-a-way/automated-organoid-culture-cellxpress-ai.html
         - generic [ref=e172]:
           - paragraph [ref=e174]:
             - img [ref=e176]
@@ -164,7 +164,7 @@
             - paragraph [ref=e180]:
               - strong [ref=e181]:
                 - link "Explore ->" [ref=e182] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/mica-microhub-3d-cell-imaging.html
+                  - /url: /us/en/we-see-a-way/mica-microhub-3d-cell-imaging.html
         - generic [ref=e183]:
           - paragraph [ref=e185]:
             - img [ref=e187]
@@ -172,7 +172,7 @@
             - heading "Reduce time to assay from 17 days to just 2 days" [level=3] [ref=e190]
             - paragraph [ref=e191]:
               - link "Explore ->" [ref=e192] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/we-see-a-way/3d-ready-organoids-fast-reliable-research.html
+                - /url: /us/en/we-see-a-way/3d-ready-organoids-fast-reliable-research.html
     - generic [ref=e194]:
       - heading "Our principles" [level=2] [ref=e197]
       - generic [ref=e198]:
@@ -187,7 +187,7 @@
               - generic:
                 - text: The right team will help you achieve measurably improved outcomes in utilization, cost, capacity, risk, and time. By offering you one point of contact, we source the right expertise from Danaher Life Sciences’ entire ecosystem of engineering, science, and technology innovators.
                 - link "Talk to an Expert -->" [ref=e212] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/expert.html
+                  - /url: /us/en/expert.html
           - generic [ref=e213]:
             - generic "Integrated workflows" [ref=e214] [cursor=pointer]:
               - heading "Integrated workflows" [level=3] [ref=e215]
@@ -197,7 +197,7 @@
               - generic:
                 - text: Critical to your team and unique to Danaher are Solution Architects, who look at your entire bioprocess—not just fragments of it— to eliminate bottlenecks, pain points, and redundant steps along your R&D pathway. How? We innovatively integrate, automate, and digitalize your complex workflows— end to end—to deliver quantifiable value across your labs.
                 - link "See Our Workflows -->" [ref=e221] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/solutions.html
+                  - /url: /us/en/solutions.html
           - generic [ref=e222]:
             - generic "Driving efficiency" [ref=e223] [cursor=pointer]:
               - heading "Driving efficiency" [level=3] [ref=e224]
@@ -207,7 +207,7 @@
               - generic:
                 - text: The Danaher Business System powers our constant cycle of change and improvement. This unique approach allows our exceptional people to develop innovative recommendations, then realize them using world-class solutions and products to construct sustainable processes, resulting in superior outcomes.
                 - link "See Our Process -->" [ref=e230] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/solutions.html
+                  - /url: /us/en/solutions.html
     - generic [ref=e231]:
       - heading "Browse, consult, and stay ahead with our expert-curated insights." [level=2] [ref=e233]
       - generic [ref=e235]:
@@ -220,7 +220,7 @@
               - text: Our capabilities extend beyond research to power the creation of biopharmaceuticals, cell and gene therapies and other breakthrough treatments.
               - strong [ref=e245]:
                 - link "Shop now ->" [ref=e246] [cursor=pointer]:
-                  - /url: https://lifesciences.danaher.com/us/en/products.html
+                  - /url: /us/en/products.html
         - generic [ref=e247]:
           - paragraph [ref=e249]:
             - img [ref=e251]
@@ -229,7 +229,7 @@
             - paragraph [ref=e255]:
               - text: Our experts apply technology and proven solutions, working with you to design and implement integrated workflow solutions.
               - link "Discover how we can help ->" [ref=e256] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/expert.html
+                - /url: /us/en/expert.html
         - generic [ref=e257]:
           - paragraph [ref=e259]:
             - img [ref=e261]
@@ -238,7 +238,7 @@
             - paragraph [ref=e265]:
               - text: We’re always thinking ahead. Learn how we ensure that you can do the same.
               - link "Subscribe today ->" [ref=e266] [cursor=pointer]:
-                - /url: https://lifesciences.danaher.com/us/en/connect/newsletter.html
+                - /url: /us/en/connect/newsletter.html
     - generic [ref=e270]:
       - generic [ref=e272]:
         - paragraph [ref=e273]: SCIEX
