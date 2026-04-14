@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
   schedule:
-    - cron: '50 10 * * *'   # 4:00 PM IST (10:30 UTC)
+    - cron: '40 11 * * *'   # 5:10 PM IST (11:40 AM UTC)
  
 jobs:
   capture:
@@ -27,10 +27,11 @@ jobs:
         run: npx playwright install --with-deps
  
       - name: Run regression tests
-             TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
         env: 
-          PREVIEW_DIR: previews/${{ github.ref_name }}/$TIMESTAMP
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
+          PREVIEW_DIR="previews/${{ github.ref_name }}/$TIMESTAMP"
           echo "Using preview dir: $PREVIEW_DIR"
           mkdir -p "$PREVIEW_DIR"
  
@@ -48,6 +49,7 @@ jobs:
         with:
           name: Playwright-Excel-Report
           path: Playwright_Test_Report.xlsx
+ 
       - name: Show preview structure
         run: |
           echo "Preview folder structure:"
@@ -62,5 +64,4 @@ jobs:
           git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
           git push
         env:
-
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
