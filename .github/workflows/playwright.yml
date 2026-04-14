@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
   schedule:
-    - cron: '40 11 * * *'   # 5:10 PM IST (11:40 AM UTC)
+    - cron: '3 12 * * *'   # 5:33 PM IST (12:03 PM UTC)
  
 jobs:
   capture:
@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Print trigger info
+        run: echo "Triggered by ${{ github.event_name }}"
  
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -62,6 +65,6 @@ jobs:
  
           git add -f previews/
           git diff --cached --quiet || git commit -m "Update Playwright screenshots & videos [skip ci]"
-          git push
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
